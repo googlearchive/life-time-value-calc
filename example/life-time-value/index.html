@@ -41,11 +41,11 @@
             <table id="productProfitability">
               <tr><th colspan="2">Purchase Profitability</th></tr>
               <tr>
-                <td>Your customers' <strong>first purchase</strong> value <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>first time purchase value</strong> of your customer - The average amount of money your customer spends for the first time.</div></div></td>
-                <td><span class="currency-placeholder">$</span> <input id="firstPurchase" type="text" value="100"></td>
+                <td><strong>Customer lifetime</strong> (in periods) <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes"><strong>Periods</strong> – the units of time into which a customer relationship is divided for analysis. A year is the most commonly used period - <strong>Customer Life-Time value</strong> is a multi-period calculation, usually stretching 3–7 years into the future. In practice, analysis beyond this point is viewed as too speculative to be reliable.</div></div></td><td><input id="customerLifetime" type="text" value="3"></td>
               </tr>
               <tr>
-                <td><strong>Customer lifetime</strong> (in periods) <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes"><strong>Periods</strong> – the units of time into which a customer relationship is divided for analysis. A year is the most commonly used period - <strong>Customer Life-Time value</strong> is a multi-period calculation, usually stretching 3–7 years into the future. In practice, analysis beyond this point is viewed as too speculative to be reliable.</div></div></td><td><input id="customerLifetime" type="text" value="3"></td>
+                <td>Your customers' <strong>first purchase</strong> value <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>first time purchase value</strong> of your customer - The average amount of money your customer spends for the first time.</div></div></td>
+                <td><span class="currency-placeholder">$</span> <input id="firstPurchase" type="text" value="100"></td>
               </tr>
               <tr style="display:none">
                 <td>Re-purchase</td><td><input id="repurchase" type="text" value=""></td>
@@ -158,9 +158,9 @@
               </tr>
             </table>
              <table id="costOfCapitalTable">
-               <tr><th colspan="2">Cost of Capital</th></tr>
+               <tr><th colspan="2">Discount rate</th></tr>
               <tr>
-                <td><strong>Cost of capital</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>% rate of return that capital could be expected to earn in an alternative investment of equivalent risk</strong>. It helps you in discounting the future revenues to the present value.</div></div></td><td><input id="costOfCapital" type="text" value="10%"></td>
+                <td><strong>Discount rate</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>% rate of return that capital could be expected to earn in an alternative investment of equivalent risk</strong> (also known as Cost of capital). It helps you in discounting the future revenues to the present value.</div></div></td><td><input id="costOfCapital" type="text" value="10%"></td>
               </tr>
             </table>
 		      </div>
