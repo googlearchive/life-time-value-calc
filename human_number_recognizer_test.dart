@@ -59,11 +59,11 @@ main() {
   });
   test('decimal comma', () {
     num x = rec("10,6");
-    expect(x, closeTo(10.6, 0.0001));
+    expect(x, equals(10.6));
     x = rec("10,6 %");
-    expect(x, closeTo(10.6, 0.0001));
+    expect(x, equals(10.6));
     x = rec("-0,116");
-    expect(x, closeTo(-0.116, 0.0001));
+    expect(x, equals(-0.116));
   });
   test('thousands space, decimal comma', () {
     num x;
