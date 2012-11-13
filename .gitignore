@@ -1,0 +1,4 @@
+*.dart.js
+*.dart.js.map
+.project
+.DS_Store
