@@ -673,7 +673,6 @@ div#inputs {
 }
 
 div#outputs {
-  margin-top: 0;
   float: none;
   clear: both;
   width: 100%;
