@@ -250,8 +250,6 @@ class LtvModel {
    * an input is changed.
    */
   void recalculate(Event e) {
-    print("==RECALCULATE==");
-
     // recalculate (if not overridden)
     year2PurchaseValue.recalculate();
     year3PurchaseValue.recalculate();
@@ -262,23 +260,17 @@ class LtvModel {
 
     // first year
     num firstYearOnlinePurchase = firstPurchaseValue.value * purchasesPerYear.value;
-    print("firstYearOnlinePurchase: $firstYearOnlinePurchase");
     num firstYearTotalOnOffPurchase = firstYearOnlinePurchase * ropoCoefficient.value;
-    print("firstYearTotalOnOffPurchase: $firstYearTotalOnOffPurchase");
 
     // year 2
     num year2OnlinePurchase = year2PurchaseValue.value * year2PurchasesPerYear.value;
     num year2TotalOnOffPurchase = year2OnlinePurchase * year2RetentionRate.value * ropoCoefficient.value;
-    print("year2TotalOnOffPurchase: $year2TotalOnOffPurchase");
     num year2TotalDiscounted = year2TotalOnOffPurchase / (1 + costOfCapital.value);
-    print("costOfCapital.value: ${costOfCapital.value}");
-    print("year2TotalDiscounted: $year2TotalDiscounted");
 
     // year 3
     num year3OnlinePurchase = year3PurchaseValue.value * year3PurchasesPerYear.value;
     num year3TotalOnOffPurchase = year3OnlinePurchase * year3RetentionRate.value * ropoCoefficient.value;
     num year3TotalDiscounted = year3TotalOnOffPurchase / pow(1 + costOfCapital.value, 2);
-    print("year3TotalDiscounted: $year3TotalDiscounted");
 
     // year 4
     num year4PurchaseValue = year3OnlinePurchase;
@@ -294,16 +286,12 @@ class LtvModel {
 
     // year 6 to infinity (allOther)
     num allOtherYearsPurchaseValue = year3OnlinePurchase;
-    print("allOtherYearsPurchaseValue: $allOtherYearsPurchaseValue");
     num allOtherYearsRetentionRate = year5RetentionRate * ((customerLifetime.value - 1) / customerLifetime.value);
-    print("allOtherYearsRetentionRate: $allOtherYearsRetentionRate");
     num allOtherYearsTotalOnOffPurchase = allOtherYearsPurchaseValue * allOtherYearsRetentionRate * ropoCoefficient.value;
-    print("allOtherYearsTotalOnOffPurchase: $allOtherYearsTotalOnOffPurchase");
     //=(K26/(K27-(($'Inputs & Results'.L12-1)/$'Inputs & Results'.L12-1)))/((1+K27)^5)
     num sumOfAllOtherYearsTotalDiscounted = allOtherYearsTotalOnOffPurchase /
         (costOfCapital.value - (((customerLifetime.value - 1) / customerLifetime.value) - 1)) /
         pow(1 + costOfCapital.value, 5);
-    print("sumOfAllOtherYearsTotalDiscounted: $sumOfAllOtherYearsTotalDiscounted");
 
     // total
     totalPurchasePlusRepeat.value = firstYearTotalOnOffPurchase +
@@ -359,8 +347,15 @@ class LtvModel {
       "currency": _currencyInputEl.value,
       "cpc": cpc.elValue,
       "conversionRate": conversionRate.elValue,
-      "firstPurchase": firstPurchaseValue.elValue,
       "customerLifetime": customerLifetime.elValue,
+      "firstPurchase": firstPurchaseValue.elValue,
+      "purchasesPerYear": purchasesPerYear.elValue,
+      "year2PurchaseValue": year2PurchaseValue.elValue,
+      "year3PurchaseValue": year3PurchaseValue.elValue,
+      "year2PurchasesPerYear": year2PurchasesPerYear.elValue,
+      "year3PurchasesPerYear": year3PurchasesPerYear.elValue,
+      "year2RetentionRate": year2RetentionRate.elValue,
+      "year3RetentionRate": year3RetentionRate.elValue,
       "referralRate": referralRate.elValue,
       "grossMargin": grossMargin.elValue,
       "ropoCategory": ropoCategoryEl.value,
@@ -379,10 +374,17 @@ class LtvModel {
       cpc.elValue = map["cpc"];
     if (map.containsKey("conversionRate"))
       conversionRate.elValue = map["conversionRate"];
-    if (map.containsKey("firstPurchase"))
-      firstPurchaseValue.elValue = map["firstPurchase"];
     if (map.containsKey("customerLifetime"))
       customerLifetime.elValue = map["customerLifetime"];
+    if (map.containsKey("firstPurchase"))
+      firstPurchaseValue.elValue = map["firstPurchase"];
+    if (map.containsKey("purchasesPerYear")) purchasesPerYear.elValue = map["purchasesPerYear"];
+    if (map.containsKey("year2PurchaseValue")) year2PurchaseValue.elValue = map["year2PurchaseValue"];
+    if (map.containsKey("year3PurchaseValue")) year3PurchaseValue.elValue = map["year3PurchaseValue"];
+    if (map.containsKey("year2PurchasesPerYear")) year2PurchasesPerYear.elValue = map["year2PurchasesPerYear"];
+    if (map.containsKey("year3PurchasesPerYear")) year3PurchasesPerYear.elValue = map["year3PurchasesPerYear"];
+    if (map.containsKey("year2RetentionRate")) year2RetentionRate.elValue = map["year2RetentionRate"];
+    if (map.containsKey("year3RetentionRate")) year3RetentionRate.elValue = map["year3RetentionRate"];
     if (map.containsKey("referralRate"))
       referralRate.elValue = map["referralRate"];
     if (map.containsKey("grossMargin"))
