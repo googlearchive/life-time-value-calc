@@ -511,6 +511,7 @@ input#link-for-sharing {
   width: 15em;
   font-size: 80%;
   color: #666;
+  background: white;
 }
 
 span#methodology-arrow {
