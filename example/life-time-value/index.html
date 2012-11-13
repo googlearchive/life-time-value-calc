@@ -41,11 +41,45 @@
             <table id="productProfitability">
               <tr><th colspan="2">Purchase Profitability</th></tr>
               <tr>
-                <td><strong>Customer lifetime</strong> (in periods) <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes"><strong>Periods</strong> – the units of time into which a customer relationship is divided for analysis. A year is the most commonly used period - <strong>Customer Life-Time value</strong> is a multi-period calculation, usually stretching 3–7 years into the future. In practice, analysis beyond this point is viewed as too speculative to be reliable.</div></div></td><td><input id="customerLifetime" type="text" value="3"></td>
+                <td><strong>Customer lifetime</strong> (in years) <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes"><strong>Periods</strong> – the units of time into which a customer relationship is divided for analysis. A year is the most commonly used period - <strong>Customer Life-Time value</strong> is a multi-period calculation, usually stretching 3–7 years into the future. In practice, analysis beyond this point is viewed as too speculative to be reliable.</div></div></td><td><input id="customerLifetime" type="text" value="3"></td>
               </tr>
               <tr>
-                <td>Your customers' <strong>first purchase</strong> value <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>first time purchase value</strong> of your customer - The average amount of money your customer spends for the first time.</div></div></td>
+                <td><strong>First purchase</strong> value <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>first time purchase value</strong> of your customer - The average amount of money your customer spends for the first time.</div></div></td>
                 <td><span class="currency-placeholder">$</span> <input id="firstPurchase" type="text" value="100"></td>
+              </tr>
+              <tr>
+                <td><strong>Purchases per year</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">TBD</div></div></td>
+                <td><input id="purchasesPerYear" type="text" value="1"></td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <table id="profit-development">
+                    <tr>
+                      <th>Year</th>
+                      <th>1<sup>st</sup></th>
+                      <th>2<sup>nd</sup></th>
+                      <th>3<sup>rd</sup>+</th>
+                    </tr>
+                    <tr>
+                      <td><strong>Purchase value</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">TBD</div></div></td>
+                      <td><input id="firstPurchase" type="text" value="100"></td>
+                      <td><input id="year-2-purchase" type="text" value="100"></td>
+                      <td><input id="year-3-purchase" type="text" value="100"></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Purchases per year</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">TBD</div></div></td>
+                      <td><input id="purchasesPerYear" type="text" value="1"></td>
+                      <td><input id="year-2-purchasesPerYear" type="text" value="1"></td>
+                      <td><input id="year-3-purchasesPerYear" type="text" value="1"></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Retention rate</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">TBD</div></div></td>
+                      <td><input type="text" disabled value="&mdash;"></td>
+                      <td><input id="year-2-retentionRate" type="text" value="67%"></td>
+                      <td><input id="year-3-retentionRate" type="text" value="44%"></td>
+                    </tr>
+                  </table>
+                </td>
               </tr>
               <tr style="display:none">
                 <td>Re-purchase</td><td><input id="repurchase" type="text" value=""></td>
@@ -56,6 +90,9 @@
               <tr>
                 <td><strong>Gross profit margin</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>% proportion of money left over from revenues after accounting for cost of goods sold</strong>. Gross profit margin serves as the source for paying additional expenses and future savings.</div></div></td><td><input id="grossMargin" type="text" value="15%"></td>
               </tr>
+            </table>
+            <table id="">
+              
             </table>
             <table id="ropoEffect">
               <tr><th colspan="2">Online-to-Store (O2S)</th></tr>

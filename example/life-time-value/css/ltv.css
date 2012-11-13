@@ -107,6 +107,11 @@ p, td {
   color: #333;
 }
 
+sup {
+  font-size: 60%;
+  vertical-align: super;
+}
+
 a {
   color: #3369E8;
 }
@@ -220,6 +225,45 @@ th {
   font-size: 80%;
 }
 
+div#inputs table#profit-development {
+  border-top: none;
+  font-size: 100%;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+div#inputs table#profit-development th {
+  color: #3369E8;
+  padding-left: 0.5em;
+  text-align: left;
+  font-size: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 80%;
+}
+
+div#inputs table#profit-development th:first-child {
+  text-align: right;
+  padding-right: 1em;
+}
+
+div#inputs table#profit-development th small {
+  font-size: 60%;
+  line-height: 0.6em;
+  display: none;
+}
+
+div#inputs table#profit-development td {
+  margin: 0;
+  padding: 0;
+  width: 10%;
+}
+
+div#inputs table#profit-development td:first-child {
+  width: 50%;
+  padding-right: 1em;
+}
+
 div.question-mark {
   display: inline;
   position: relative;
@@ -280,7 +324,7 @@ div#outputs {
   width: 50%;
   max-width: 43em;
   margin-left: 10%;
-  padding-top: 2em;
+  margin-top: 5em;
 }
 
 div#outputs p {
@@ -587,8 +631,17 @@ body {
   font-size: 90%;
 }
 
+div#inputs-tabs a {
+  height: 1.5em;
+}
+
+div#inputs {
+  width: 45%;
+  max-width: none;
+}
+
 div#outputs {
-  padding-top: 0;
+  width: 45%;
 }
 
 }
@@ -603,7 +656,7 @@ div#inputs select {
 
 }
 
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 650px) {
 
 div#inputs {
   float: none;
@@ -616,7 +669,7 @@ div#inputs {
 }
 
 div#outputs {
-  padding-top: 0;
+  margin-top: 0;
   float: none;
   clear: both;
   width: 100%;
