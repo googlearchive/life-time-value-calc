@@ -12,6 +12,14 @@ class BoundValue {
   num _value;
   bool isPercentage;
 
+  /**
+   * Function [autoGetValue] is called on each recalculate and will update
+   * value from the return of that function, unless the value has been
+   * manually changed.
+   */
+  Function autoGetValue;
+  bool _autoValueOverridden = false;
+
   LtvModel model;
 
   int precision = 2;
@@ -43,7 +51,12 @@ class BoundValue {
 
   void inputListener(Event e, {bool forceNoRecalculate: false}) {
     Element eventEl = (e != null && e.target != null) ? e.target : _elements[0];
-    num n = _readNumberFrom(eventEl);
+    num n;
+    if (_getStringFrom(eventEl).trim() == "" && autoGetValue != null) {
+      n = autoGetValue();
+    } else {
+      n = _readNumberFrom(eventEl);
+    }
     if (n != null) {
       bool sameValue = _value == n;
       _value = n;
@@ -55,6 +68,9 @@ class BoundValue {
           el.classes.remove("invalid");
       });
       if (model != null && !forceNoRecalculate && !sameValue) {
+        if (autoGetValue != null) {
+          _autoValueOverridden = (autoGetValue() != n);
+        }
         model.recalculate(e);
       }
     } else {
@@ -64,7 +80,7 @@ class BoundValue {
 
   void _addPercentageBlurListenerTo(Element el) {
     el.on.blur.add((Event e) {
-      String s = _getTextOrValueFrom(el);
+      String s = _getStringFrom(el);
       if (!HumanNumber.numberCharsStringWithEndingPercentage.hasMatch(s)) {
         _setTextOrValueTo(el, "$s%");
       }
@@ -76,7 +92,7 @@ class BoundValue {
    * Returns [:null:] on invalid input.
    */
   num _readNumberFrom(Element el) {
-    String s = _getTextOrValueFrom(el);
+    String s = _getStringFrom(el);
 
     num result = HumanNumber.recognizeString(s);
 
@@ -89,7 +105,7 @@ class BoundValue {
     }
   }
 
-  String _getTextOrValueFrom(Element el) {
+  String _getStringFrom(Element el) {
     if (el is InputElement) {
       return (el as InputElement).value;
     } else {
@@ -137,6 +153,12 @@ class BoundValue {
     //new Timer(500, (_) => el.classes.remove("highlight"));
   }
 
+  void recalculate() {
+    if (autoGetValue != null && !_autoValueOverridden) {
+      value = autoGetValue();
+    }
+  }
+
   num get value => _value;
 
   set value(val) {
@@ -149,7 +171,7 @@ class BoundValue {
   }
 
   String get elValue {
-    return _getTextOrValueFrom(_elements[0]);
+    return _getStringFrom(_elements[0]);
   }
 
   set elValue(String val) {
@@ -166,8 +188,13 @@ class LtvModel {
   InputElement _currencyInputEl;
 
   // input values
-  BoundValue cpc, conversionRate, firstPurchase, customerLifetime, repurchase,
+  BoundValue cpc, conversionRate, firstPurchaseValue, customerLifetime, repurchase,
   referralRate, grossMargin, ropoCoefficient, costOfCapital;
+
+  // advanced input values
+  BoundValue purchasesPerYear, year2PurchaseValue, year3PurchaseValue,
+  year2PurchasesPerYear, year3PurchasesPerYear, year2RetentionRate,
+  year3RetentionRate;
 
   // output values
   BoundValue suggestedRopoCoefficient, cpa, totalOnOffPurchase, totalPurchasePlusRepeat,
@@ -188,6 +215,21 @@ class LtvModel {
    * Constructor.
    */
   LtvModel() {
+  }
+
+  /**
+   *
+   */
+  void start() {
+    // set automatic recalculation of values - this can be overridden by user
+    year2PurchaseValue.autoGetValue = () => firstPurchaseValue.value;
+    year3PurchaseValue.autoGetValue = () => year2PurchaseValue.value;
+    year2PurchasesPerYear.autoGetValue = () => purchasesPerYear.value;
+    year3PurchasesPerYear.autoGetValue = () => purchasesPerYear.value;
+    repurchase.autoGetValue = () => (customerLifetime.value - 1) / customerLifetime.value; // TODO: needed?
+    year2RetentionRate.autoGetValue = () => (customerLifetime.value - 1)/customerLifetime.value;
+    year3RetentionRate.autoGetValue = () => year2RetentionRate.value * (customerLifetime.value - 1)/customerLifetime.value;
+
     window.on.popState.add((e) {
       parseUrl();
       recalculate(null);
@@ -199,19 +241,74 @@ class LtvModel {
    * an input is changed.
    */
   void recalculate(Event e) {
-    repurchase.value = (customerLifetime.value - 1) / customerLifetime.value;
+    print("==RECALCULATE==");
 
-    cpa.value = cpc.value / conversionRate.value;
-    totalOnOffPurchase.value = firstPurchase.value * ropoCoefficient.value;
-    totalPurchasePlusRepeat.value = totalOnOffPurchase.value
-        + (totalOnOffPurchase.value * repurchase.value)
-        / (costOfCapital.value - (repurchase.value - 1));
+    // recalculate (if not overridden)
+    year2PurchaseValue.recalculate();
+    year3PurchaseValue.recalculate();
+    year2PurchasesPerYear.recalculate();
+    year3PurchasesPerYear.recalculate();
+    repurchase.recalculate(); // TODO: needed?
+    year2RetentionRate.recalculate();
+    year3RetentionRate.recalculate();
+
+    // first year
+    num firstYearOnlinePurchase = firstPurchaseValue.value * purchasesPerYear.value;
+    print("firstYearOnlinePurchase: $firstYearOnlinePurchase");
+    num firstYearTotalOnOffPurchase = firstYearOnlinePurchase * ropoCoefficient.value;
+    print("firstYearTotalOnOffPurchase: $firstYearTotalOnOffPurchase");
+
+    // year 2
+    num year2OnlinePurchase = year2PurchaseValue.value * year2PurchasesPerYear.value;
+    num year2TotalOnOffPurchase = year2OnlinePurchase * year2RetentionRate.value * ropoCoefficient.value;
+    print("year2TotalOnOffPurchase: $year2TotalOnOffPurchase");
+    num year2TotalDiscounted = year2TotalOnOffPurchase / (1 + costOfCapital.value);
+    print("costOfCapital.value: ${costOfCapital.value}");
+    print("year2TotalDiscounted: $year2TotalDiscounted");
+
+    // year 3
+    num year3OnlinePurchase = year3PurchaseValue.value * year3PurchasesPerYear.value;
+    num year3TotalOnOffPurchase = year3OnlinePurchase * year3RetentionRate.value * ropoCoefficient.value;
+    num year3TotalDiscounted = year3TotalOnOffPurchase / pow(1 + costOfCapital.value, 2);
+    print("year3TotalDiscounted: $year3TotalDiscounted");
+
+    // year 4
+    num year4PurchaseValue = year3OnlinePurchase;
+    num year4RetentionRate = year3RetentionRate.value * ((customerLifetime.value - 1) / customerLifetime.value);
+    num year4TotalOnOffPurchase = year4PurchaseValue * year4RetentionRate * ropoCoefficient.value;
+    num year4TotalDiscounted = year4TotalOnOffPurchase / pow(1 + costOfCapital.value, 3);
+
+    // year 5
+    num year5PurchaseValue = year3OnlinePurchase;
+    num year5RetentionRate = year4RetentionRate * ((customerLifetime.value - 1) / customerLifetime.value);
+    num year5TotalOnOffPurchase = year5PurchaseValue * year5RetentionRate * ropoCoefficient.value;
+    num year5TotalDiscounted = year5TotalOnOffPurchase / pow(1 + costOfCapital.value, 4);
+
+    // year 6 to infinity (allOther)
+    num allOtherYearsPurchaseValue = year3OnlinePurchase;
+    print("allOtherYearsPurchaseValue: $allOtherYearsPurchaseValue");
+    num allOtherYearsRetentionRate = year5RetentionRate * ((customerLifetime.value - 1) / customerLifetime.value);
+    print("allOtherYearsRetentionRate: $allOtherYearsRetentionRate");
+    num allOtherYearsTotalOnOffPurchase = allOtherYearsPurchaseValue * allOtherYearsRetentionRate * ropoCoefficient.value;
+    print("allOtherYearsTotalOnOffPurchase: $allOtherYearsTotalOnOffPurchase");
+    //=(K26/(K27-(($'Inputs & Results'.L12-1)/$'Inputs & Results'.L12-1)))/((1+K27)^5)
+    num sumOfAllOtherYearsTotalDiscounted = allOtherYearsTotalOnOffPurchase /
+        (costOfCapital.value - (((customerLifetime.value - 1) / customerLifetime.value) - 1)) /
+        pow(1 + costOfCapital.value, 5);
+    print("sumOfAllOtherYearsTotalDiscounted: $sumOfAllOtherYearsTotalDiscounted");
+
+    // total
+    totalPurchasePlusRepeat.value = firstYearTotalOnOffPurchase +
+        year2TotalDiscounted + year3TotalDiscounted + year4TotalDiscounted
+        + year5TotalDiscounted + sumOfAllOtherYearsTotalDiscounted;
     referralAdditionalRevenue.value = totalPurchasePlusRepeat.value
         * (1 / (1 - referralRate.value))
         - totalPurchasePlusRepeat.value;
     totalPurchasePlusRepeatAndReferral.value = totalPurchasePlusRepeat.value
         + referralAdditionalRevenue.value;
     lifetimeValue.value = totalPurchasePlusRepeatAndReferral.value * grossMargin.value;
+
+    cpa.value = cpc.value / conversionRate.value;
     profitPerCustomer.value = lifetimeValue.value - cpa.value;
     roi.value = profitPerCustomer.value / cpa.value;
     breakEvenCPC.value = lifetimeValue.value * conversionRate.value;
@@ -254,7 +351,7 @@ class LtvModel {
       "currency": _currencyInputEl.value,
       "cpc": cpc.elValue,
       "conversionRate": conversionRate.elValue,
-      "firstPurchase": firstPurchase.elValue,
+      "firstPurchase": firstPurchaseValue.elValue,
       "customerLifetime": customerLifetime.elValue,
       "referralRate": referralRate.elValue,
       "grossMargin": grossMargin.elValue,
@@ -275,7 +372,7 @@ class LtvModel {
     if (map.containsKey("conversionRate"))
       conversionRate.elValue = map["conversionRate"];
     if (map.containsKey("firstPurchase"))
-      firstPurchase.elValue = map["firstPurchase"];
+      firstPurchaseValue.elValue = map["firstPurchase"];
     if (map.containsKey("customerLifetime"))
       customerLifetime.elValue = map["customerLifetime"];
     if (map.containsKey("referralRate"))

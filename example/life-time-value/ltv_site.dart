@@ -11,9 +11,29 @@ void main() {
   model.cpc = new BoundValue("#cpc", model);
   model.cpc.addElements([query("#cpc-considering")]);
   model.conversionRate = new BoundValue("#conversionRate", model, isPercentage:true);
-  model.firstPurchase = new BoundValue("#firstPurchase", model);
   model.customerLifetime = new BoundValue("#customerLifetime", model);
+  model.firstPurchaseValue = new BoundValue("#firstPurchase", model);
+  model.firstPurchaseValue.precision = 0;
+  model.firstPurchaseValue.addElements([query("#firstPurchase-table")]);
   model.repurchase = new BoundValue("#repurchase", model, isPercentage:true);
+
+  // advanced
+  model.purchasesPerYear = new BoundValue("#purchasesPerYear", model);
+  model.purchasesPerYear.precision = 0;
+  model.purchasesPerYear.addElements([query("#purchasesPerYear-table")]);
+  model.year2PurchaseValue = new BoundValue("#year-2-purchase", model);
+  model.year2PurchaseValue.precision = 0;
+  model.year3PurchaseValue = new BoundValue("#year-3-purchase", model);
+  model.year3PurchaseValue.precision = 0;
+  model.year2PurchasesPerYear = new BoundValue("#year-2-purchasesPerYear", model);
+  model.year2PurchasesPerYear.precision = 0;
+  model.year3PurchasesPerYear = new BoundValue("#year-3-purchasesPerYear", model);
+  model.year3PurchasesPerYear.precision = 0;
+  model.year2RetentionRate = new BoundValue("#year-2-retentionRate", model, isPercentage:true);
+  model.year2RetentionRate.precision = 0;
+  model.year3RetentionRate = new BoundValue("#year-3-retentionRate", model, isPercentage:true);
+  model.year3RetentionRate.precision = 0;
+
   model.referralRate = new BoundValue("#referralRate", model, isPercentage:true);
   model.grossMargin = new BoundValue("#grossMargin", model, isPercentage:true);
   model.costOfCapital = new BoundValue("#costOfCapital", model, isPercentage:true);
@@ -58,6 +78,7 @@ void main() {
   model.parseUrl();
 
   // start the engine
+  model.start();
   model.recalculate(null);
   model.pushState();
 

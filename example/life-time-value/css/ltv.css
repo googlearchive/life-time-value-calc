@@ -291,7 +291,7 @@ table td:last-child {
   width: 6em;
 }
 
-div#inputs span.currency-placeholder {
+div#inputs span.currency-placeholder.with-input {
   font-size: 80%;
   width: 2.5em;
   height: 1.5em;

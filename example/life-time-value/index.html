@@ -31,7 +31,7 @@
               <tr><th colspan="2">Product Conversion</th></tr>
               <tr>
                 <td>AdWords <strong>CPC</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">Your <strong>Cost-per-Click average</strong> in last 30 days - The amount that you actually pay each time someone clicks your ad. You can find it in AdWords.</div></div></td>
-                <td><span class="currency-placeholder">$</span> <input id="cpc" type="text" value="2.1"></td>
+                <td><span class="currency-placeholder with-input">$</span> <input id="cpc" type="text" value="2.1"></td>
               </tr>
               <tr>
                 <td><strong>Conversion rate</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">Your <strong>conversion rate average in %</strong> in last 30 days - How often a click on your ad resulted in a conversion, a meaningful action like a sale, lead, or sign-up. You can find it in AdWords.</div></div></td>
@@ -45,13 +45,16 @@
               </tr>
               <tr>
                 <td><strong>First purchase</strong> value <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>first time purchase value</strong> of your customer - The average amount of money your customer spends for the first time.</div></div></td>
-                <td><span class="currency-placeholder">$</span> <input id="firstPurchase" type="text" value="100"></td>
+                <td><span class="currency-placeholder with-input">$</span> <input id="firstPurchase" type="text" value="100"></td>
               </tr>
-              <tr>
+              <tr style="display:none">
+                <td>Re-purchase</td><td><input id="repurchase" type="text" value=""></td>
+              </tr>
+              <tr class="advanced">
                 <td><strong>Purchases per year</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">TBD</div></div></td>
                 <td><input id="purchasesPerYear" type="text" value="1"></td>
               </tr>
-              <tr>
+              <tr class="advanced">
                 <td colspan="2">
                   <table id="profit-development">
                     <tr>
@@ -61,14 +64,14 @@
                       <th>3<sup>rd</sup>+</th>
                     </tr>
                     <tr>
-                      <td><strong>Purchase value</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">TBD</div></div></td>
-                      <td><input id="firstPurchase" type="text" value="100"></td>
+                      <td><strong>Purchase value</strong> (<span class="currency-placeholder">$</span>) <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">TBD</div></div></td>
+                      <td><input id="firstPurchase-table" type="text" value="100"></td>
                       <td><input id="year-2-purchase" type="text" value="100"></td>
                       <td><input id="year-3-purchase" type="text" value="100"></td>
                     </tr>
                     <tr>
                       <td><strong>Purchases per year</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">TBD</div></div></td>
-                      <td><input id="purchasesPerYear" type="text" value="1"></td>
+                      <td><input id="purchasesPerYear-table" type="text" value="1"></td>
                       <td><input id="year-2-purchasesPerYear" type="text" value="1"></td>
                       <td><input id="year-3-purchasesPerYear" type="text" value="1"></td>
                     </tr>
@@ -80,9 +83,6 @@
                     </tr>
                   </table>
                 </td>
-              </tr>
-              <tr style="display:none">
-                <td>Re-purchase</td><td><input id="repurchase" type="text" value=""></td>
               </tr>
               <tr>
                 <td><strong>Referral rate</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>% rate in which customers continue to recommend or talk about their good experiences</strong> with their friends - If your referral rate is 10% it means that for every 10 customers there is 1 more customer from the recommendations.</div></div></td><td><input id="referralRate" type="text" value="10%"></td>
