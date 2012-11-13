@@ -229,6 +229,7 @@ select {
 div#outputs {
 	float: left;
 	width: 50%;
+	max-width: 43em;
 	margin-left: 10%;
 	padding-top: 2em;
 }
@@ -389,6 +390,11 @@ input#link-for-sharing {
 	color: #666;
 }
 
+span#methodology-arrow {
+	color: #3369E8;
+	font-size: 50%;
+}
+
 span.no-linebreak {
 	display: inline-block;
 	text-align: right;
@@ -404,17 +410,61 @@ div#methodology {
 }
 
 div#methodology-inside-wrapper {
-	padding: 3em 0;
+	padding: 2em 0;
 }
 
 div#methodology h2 {
-	font-size: 120%;
+	border-top: 1px solid #ccc;
+	padding-top: 1em;
+	font-size: 140%;
 	font-weight: bold;
+}
+
+div#methodology h3 {
+	margin-top: 1em;
+	border-top: none;
+	color: 3369E8;
+	padding: 0.8em 0;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	font-size: 100%;
+}
+
+div#methodology h4 {
+	margin-top: 1.5em;
 }
 
 div#methodology p {
 	font-size: 100%;
+	line-height: 1.5em;
 }
+
+div#methodology p.reserve {
+	height: 3em;
+}
+
+div#methodology ul, div#methodology ol {
+	margin-top: 0.5em;
+}
+
+div#methodology li {
+	margin-left: 2em;
+	margin-bottom: 0.5em;
+	line-height: 1.5em;
+}
+
+div#methodology ul li {
+	list-style-type: circle;	
+}
+
+div#methodology ol li {
+	list-style-type: decimal;	
+}
+
+div#methodology img {
+	max-width: 100%;
+}
+
 
 div#footer {
 	margin: 2em 0;
@@ -447,5 +497,49 @@ div#belowInputsAndOutputs {
 	clear: both;
 	height: 2em;
 }
+
+/* @group Media Queries */
+
+@media screen and (max-width: 1120px) {
+	body {
+		font-size: 90%;
+	}
+	
+	div#outputs {
+		padding-top: 0;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	div#inputs select {
+		display: block;
+		margin-left: auto;
+		margin-top: 0.8em;
+	}
+}
+
+@media screen and (max-width: 630px) {
+	div#inputs {
+		float: none;
+		clear: both;
+		width: 100%;
+		max-width: none;
+		margin-right: 1em;
+		border-bottom: 1em solid #ccc;
+		padding-bottom: 2em;
+	}
+	
+	div#outputs {
+		padding-top: 0;
+		float: none;
+		clear: both;
+		width: 100%;
+		margin-left: 0;
+	}
+}
+
+/* @end */
+
+
 
 

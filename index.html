@@ -3,14 +3,15 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
     <title>Life-Time Value Calculator</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>-->
     <link rel="stylesheet" href="ltv.css">
   </head>
   <body>
   	<div id="matrioska">
       <div id="loading-div">
-        <p><img src="imgs/loader.gif"> Loading...</p>
+        <p><img src="imgs/loader.gif">Loading...</p>
       </div>
   		<div id="topBar">
 		    <h1><a href=".">Life-Time Value Calculator</a></h1>
@@ -215,9 +216,9 @@
           <h3>What next?</h3>
           <ul id="what-next">
             <li class="link-for-sharing">Share current setup by copying <span class="no-linebreak">this&nbsp;link:&nbsp;<input id="link-for-sharing" type="text" readonly></span></li>
-            <li class="methodology-link"><a id="methodology-link" href="#methodology">Learn about the methodology</a></li>
+            <li class="methodology-link"><a id="methodology-link" href="#methodology">Learn about the methodology</a>&nbsp;<span id="methodology-arrow">&#x25BC;</span></li>
           </ul>
-            
+
           <table id="output" style="display:none">
               <tr><td>Total on/off purchase</td><td><span id="totalOnOffPurchase"></span></td></tr>
               <tr><td>Total purchase + repeat</td><td><span id="totalPurchasePlusRepeat"></span></td></tr>
@@ -226,63 +227,59 @@
           </table>
           <div id="methodology">
             <div id="methodology-inside-wrapper">
-            <h2>Methodology</h2>
-            <!-- LOREM IPSUM -->
-<p>Customer lifetime value has intuitive appeal as a marketing concept, because in theory it represents exactly how much each customer is worth in monetary terms, and therefore exactly how much a marketing department should be willing to spend to acquire each customer, especially in <a href="/wiki/Direct_response_marketing" title="Direct response marketing" class="mw-redirect">direct response marketing</a>.</p>
-<p>Lifetime value is typically used to judge the appropriateness of the costs of acquisition of a customer. For example, if a new customer costs $50 to acquire (COCA, or cost of customer acquisition), and their lifetime value is $60, then the customer is judged to be profitable, and acquisition of additional similar customers is acceptable.</p>
-<p>Additionally, CLV is used to calculate <a href="/wiki/Customer_equity" title="Customer equity">customer equity</a>.</p>
-<p>Advantages of CLV:</p>
-<ul>
-<li>management of customer relationship as an asset</li>
-<li>monitoring the impact of management strategies and marketing investments on the value of customer assets</li>
-<li>determination of the optimal level of investments in marketing and sales activities</li>
-<li>implementation of sensitivity analysis in order to determinate getting impact by spending extra money on each customer<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span>[</span>3<span>]</span></a></sup></li>
-<li>optimal allocation of limited resources for ongoing marketing activities in order to achieve a maximum return</li>
-<li>a good basis for selecting customers and for decision making regarding customer specific communication strategies</li>
-<li>measurement of customer loyalty (proportion of purchase, probability of purchase and repurchase, purchase frequency and sequence etc.)<sup id="cite_ref-3" class="reference"><a href="#cite_note-3"><span>[</span>4<span>]</span></a></sup></li>
-</ul>
-<h2><span class="editsection">[<a href="/w/index.php?title=Customer_lifetime_value&amp;action=edit&amp;section=3" title="Edit section: Misuses and Downsides">edit</a>]</span> <span class="mw-headline" id="Misuses_and_Downsides">Misuses and Downsides</span></h2>
-<h3><span class="editsection">[<a href="/w/index.php?title=Customer_lifetime_value&amp;action=edit&amp;section=4" title="Edit section: NPV vs Nominal Prediction">edit</a>]</span> <span class="mw-headline" id="NPV_vs_Nominal_Prediction">NPV vs Nominal Prediction</span></h3>
-<p>The most accurate CLV predictions are made using the <a href="/wiki/Net_present_value" title="Net present value">net present value</a> (NPV) of each future net profit source, so that the revenue to be received from the customer in the future is recognized at the future value of money. However, NPV calculations require additional sophistication including maintenance of a <a href="/wiki/Discount_rate" title="Discount rate">discount rate</a>, which leads most organizations to instead calculate CLV using the nominal (non-discounted) figured. Nominal CLV predictions are biased slightly high, scaling higher the farther into the future the revenues are expected from customers</p>
-<h3><span class="editsection">[<a href="/w/index.php?title=Customer_lifetime_value&amp;action=edit&amp;section=5" title="Edit section: Net Profit vs Revenue">edit</a>]</span> <span class="mw-headline" id="Net_Profit_vs_Revenue">Net Profit vs Revenue</span></h3>
-<p>A common mistake is for a CLV prediction to calculate the total <a href="/wiki/Revenue" title="Revenue">revenue</a> or even <a href="/wiki/Gross_margin" title="Gross margin">gross margin</a> associated with a customer. However, this can cause CLV to be multiples of their actual value, and instead need to be calculated as the full <a href="/wiki/Net_profit" title="Net profit">net profit</a> expected from the customer.</p>
-<h3><span class="editsection">[<a href="/w/index.php?title=Customer_lifetime_value&amp;action=edit&amp;section=6" title="Edit section: Segment Inaccuracy">edit</a>]</span> <span class="mw-headline" id="Segment_Inaccuracy">Segment Inaccuracy</span></h3>
-<p>Opponents often cite the inaccuracy of a CLV prediction to argue they should not be used to drive significant business decisions. For example, major drivers to the value of a customer such as the nature of the relationship are often not available as appropriately structured data and thus not included in the formula.</p>
-<h3><span class="editsection">[<a href="/w/index.php?title=Customer_lifetime_value&amp;action=edit&amp;section=7" title="Edit section: Comparison with Intuition">edit</a>]</span> <span class="mw-headline" id="Comparison_with_Intuition">Comparison with Intuition</span></h3>
-<p>More, predictors such as specific <a href="/wiki/Demographics" title="Demographics">demographics</a> of a customer group may have an effect that is intuitively obvious to an experienced marketer, but are often omitted from CLV predictions and thus cause inaccuracies in certain customer segments.</p>
-<h2><span class="editsection">[<a href="/w/index.php?title=Customer_lifetime_value&amp;action=edit&amp;section=8" title="Edit section: Effects on Business Practices">edit</a>]</span> <span class="mw-headline" id="Effects_on_Business_Practices">Effects on Business Practices</span></h2>
-<p>Its use as a marketing metric tends to place greater emphasis on customer service and long-term customer satisfaction, rather than on maximizing short-term sales.</p>
-<h2><span class="editsection">[<a href="/w/index.php?title=Customer_lifetime_value&amp;action=edit&amp;section=9" title="Edit section: Predictive Models">edit</a>]</span> <span class="mw-headline" id="Predictive_Models">Predictive Models</span></h2>
-<h3><span class="editsection">[<a href="/w/index.php?title=Customer_lifetime_value&amp;action=edit&amp;section=10" title="Edit section: Simple Ecommerce Example">edit</a>]</span> <span class="mw-headline" id="Simple_Ecommerce_Example">Simple Ecommerce Example</span></h3>
-<p>(Avg Monthly Revenue per Customer * Gross Margin per Customer) / Monthly Churn Rate</p>
-<p>You should have something that looks like:</p>
-<pre>
-$100 avg monthly spend * 25% margin / 5% monthly churn = $500 LTV <sup id="cite_ref-4" class="reference"><a href="#cite_note-4"><span>[</span>5<span>]</span></a></sup>
-</pre>
-<h3><span class="editsection">[<a href="/w/index.php?title=Customer_lifetime_value&amp;action=edit&amp;section=11" title="Edit section: A Retention Example">edit</a>]</span> <span class="mw-headline" id="A_Retention_Example">A Retention Example</span></h3>
-<h4><span class="editsection">[<a href="/w/index.php?title=Customer_lifetime_value&amp;action=edit&amp;section=12" title="Edit section: 4 Steps">edit</a>]</span> <span class="mw-headline" id="4_Steps">4 Steps</span></h4>
-<ol>
-<li>forecasting of remaining customer lifetime in years</li>
-<li>forecasting of future revenues year-by-year, based on estimation about future products purchased and price paid</li>
-<li>estimation of costs for delivering those products</li>
-<li>calculation of the net present value of these future amounts<sup id="cite_ref-5" class="reference"><a href="#cite_note-5"><span>[</span>6<span>]</span></a></sup></li>
-</ol>
-<p>Forecasting accuracy and difficulty in tracking customers over time may affect CLV calculation process.</p>
-<h4><span class="editsection">[<a href="/w/index.php?title=Customer_lifetime_value&amp;action=edit&amp;section=13" title="Edit section: Inputs">edit</a>]</span> <span class="mw-headline" id="Inputs">Inputs</span></h4>
-<ul>
-<li><b><a href="/wiki/Churn_rate" title="Churn rate">Churn rate</a></b>, the percentage of customers who end their relationship with a company in a given period. One minus the churn rate is the <b>retention rate</b>. Most models can be written using either churn rate or retention rate. If the model uses only one churn rate, the assumption is that the churn rate is constant across the life of the customer relationship.</li>
-<li><b>Discount rate</b>, the <a href="/wiki/Cost_of_capital" title="Cost of capital">cost of capital</a> used to discount future revenue from a customer. Discounting is an advanced topic that is frequently ignored in customer lifetime value calculations. The current <a href="/wiki/Interest_rate" title="Interest rate">interest rate</a> is sometimes used as a simple (but incorrect) proxy for <a href="/wiki/Discount_rate" title="Discount rate">discount rate</a>.</li>
-<li><b><a href="/wiki/Contribution_margin" title="Contribution margin">Contribution margin</a></b>.</li>
-<li><b>Retention cost</b>, the amount of money a company has to spend in a given period to retain an existing customer. Retention costs include customer support, billing, promotional incentives, etc.</li>
-<li><b>Period</b>, the unit of time into which a customer relationship is divided for analysis. A year is the most commonly used period. Customer lifetime value is a multi-period calculation, usually stretching 3–7 years into the future. In practice, analysis beyond this point is viewed as too speculative to be reliable. The number of periods used in the calculation is sometimes referred to as the model <b>horizon</b>.</li>
-</ul>
-<h4><span class="editsection">[<a href="/w/index.php?title=Customer_lifetime_value&amp;action=edit&amp;section=14" title="Edit section: Model">edit</a>]</span> <span class="mw-headline" id="Model">Model</span></h4>
-<p><sup id="cite_ref-6" class="reference"><a href="#cite_note-6"><span>[</span>7<span>]</span></a></sup>:</p>
-<p><img class="tex" alt="\text{CLV}  = \text{GC} \cdot \sum_{i=0}^n \frac{r^i}{(1+d)^i} - \text{M} \cdot \sum_{i=1}^n \frac{r^{i-1}}{(1+d)^{i-0.5}}" src="//upload.wikimedia.org/math/3/b/7/3b7300e18455f74f82abd8d663d92bf8.png" />,</p>
-<p>where <img class="tex" alt="\text{GC}" src="//upload.wikimedia.org/math/a/3/c/a3c10d9f82462279a2160f995a4ec22f.png" /> is yearly gross contribution per customer, <img class="tex" alt="\text{M}" src="//upload.wikimedia.org/math/8/0/8/808f6a199d596ede8add09295c1144af.png" /> is the (relevant) retention costs per customer per year (this formula assumes the retention activities are paid for each mid year and they only affect those who were retained in the previous year), <img class="tex" alt="n" src="//upload.wikimedia.org/math/7/b/8/7b8b965ad4bca0e41ab51de7b31363a1.png" /> is the horizon (in years), <img class="tex" alt="r" src="//upload.wikimedia.org/math/4/b/4/4b43b0aee35624cd95b910189b3dc231.png" /> is the yearly retention rate, <img class="tex" alt="d" src="//upload.wikimedia.org/math/8/2/7/8277e0910d750195b448797616e091ad.png" /> is the yearly discount rate.</p>
-<h2><span class="editsection">[<a href="/w/index.php?title=Customer_lifetime_value&amp;action=edit&amp;section=15" title="Edit section: Simplified Models">edit</a>]</span> <span class="mw-headline" id="Simplified_Models">Simplified Models</span></h2>
-<p>It is often helpful to estimate customer lifetime value with a simple model to make initial assessments of customer segments and targeting. Possibly the simplest way to estimate CLV is to assume constant and long-lasting values for contribution margin, retention rate, and discount rates, as follows <sup id="cite_ref-7" class="reference"><a href="#cite_note-7"><span>[</span>8<span>]</span></a></sup>:</p>
-            <!-- END LOREM IPSUM -->
+              <h2>
+                Methodology
+              </h2>
+              <p style="width:30%;float:right;margin-left:1em;padding:1em;font-size:80%;border:0.1em solid #ccc;border-radius:0.5em;color:#666"><small><strong>Note</strong>: Some content below mirrors the Wikipedia <a href="http://en.wikipedia.org/wiki/Customer_lifetime_value">article</a> on Customer lifetime value.</small></p>
+              <p>Customer lifetime value has intuitive appeal as a marketing concept, because in theory it represents exactly how much each customer is worth in monetary terms, and therefore exactly how much a marketing department should be willing to spend to acquire each customer, especially in direct response marketing.</p>
+              <p>Lifetime value is typically used to judge the appropriateness of the costs of acquisition of a customer. For example, if a new customer costs $50 to acquire (COCA, or cost of customer acquisition), and their lifetime value is $100, then the customer is judged to be profitable, and acquisition of additional similar customers is acceptable.</p>
+
+              <h3>Advantages of CLV: </h3>
+              <ul>
+                <li>management of customer relationship as an asset</li>
+                <li>monitoring the impact of management strategies and marketing investments on the value of customer assets</li>
+                <li>determination of the optimal level of investments in marketing and sales activities</li>
+                <li>implementation of sensitivity analysis in order to determinate getting impact by spending extra money on each customer[3]</li>
+                <li>optimal allocation of limited resources for ongoing marketing activities in order to achieve a maximum return</li>
+                <li>a good basis for selecting customers and for decision making regarding customer specific communication strategies</li>
+                <li>measurement of customer loyalty (proportion of purchase, probability of purchase and repurchase, purchase frequency and sequence etc.)[4]</li>
+              </ul>
+
+              <h3>Inputs</h3>
+              <ul>
+                <li><strong>Churn rate</strong>, the percentage of customers who end their relationship with a company in a given period. One minus the churn rate is the <strong>retention rate</strong>. Most models can be written using either churn rate or retention rate. This model uses only one retention rate under the assumption that the retention rate is constant across the life of the customer relationship. This model is based on assumption that retention rate grows hand in hand with the length of customer lifetime - model uses proxy that that one`s retention rate equals (# of periods of lifetime - 1) / # of periods of lifetime.</li>
+                <li><strong>Discount rate</strong>, the <a href="http://en.wikipedia.org/wiki/Cost_of_capital">cost of capital</a> used to discount future revenue from a customer. Discounting is an advanced topic that is frequently ignored in customer lifetime value calculations. Recommendation from valuation best practice would be to keep the discount rate at no more than ~10%.</li>
+                <li><strong>Gross profit margin</strong>, % proportion of money left over from revenues after accounting for the cost of goods sold. Gross profit margin serves as the source for paying additional expenses and future savings. This CLV model is based for simplicity on gross profit margin, however if one can estimate the full net profit expected from the customer, it can via setting the % accordingly.</li>
+                <li><strong>Period</strong>, the unit of time into which a customer relationship is divided for analysis. A year is the most commonly used period. Customer lifetime value is a multi-period calculation, usually stretching 3–7 years into the future. In practice, analysis beyond this point is viewed as too speculative to be reliable. The number of periods used in the calculation is sometimes referred to as the model <strong>horizon</strong>.</li>
+                <li><strong>Online-to-Store factor</strong>, represents the coefficient by which one should multiply his online revenue to be able to incorporate also the part of offline sales which were influenced by online and thus be able to calculate the full ROI of your digital marketing activities. O2S factor = 1 means you have no offline sales.</li>
+              </ul>
+
+              <h3>Model</h3>
+              <img src="imgs/ltv-formula.png" alt="LTV formula" />
+              <p>where "<strong>First Purchase * O2S factor</strong>" represents yearly gross contribution per customer, "<strong>r</strong>" is the yearly retention rate based on assumption that retention rate grows hand in hand with the length of customer lifetime - model uses proxy that that one`s retention rate equals (# of periods of lifetime - 1) / # of periods of lifetime, "<strong>i</strong>" is the yearly discount rate.</p>
+              <h4>Example</h4>
+              <p>Let's consider the model example - First Purchase of $100, Customer Lifetime of 3 years (thus retention rate of (3-1)/3 = 67%), referral rate of 10% (meaning that for every 10th customer there is 1 more from the recommendation), Gross profit margin of 20% and discount rate of 10% p.a. Chart that would visualize gross contribution of the customer in this example would be following:</p>
+              <img src="imgs/ltv-graph.png" alt="Life time value example graph" style="border: 0.1em solid #ccc; padding:1em;width:90%;border-radius:0.5em" />
+
+              <h3>Misuses and downsides</h3>
+              <h4>NPV vs. Nominal predictions</h4>
+              <p>The most accurate CLV predictions are made using the net present value (NPV) of each future net profit source, so that the revenue to be received from the customer in the future is recognized at the future value of money. This CLV model is based on NPV of each future net profit source, for discounting to present values is used discount rate (in common usage is currently ~10%).</p>
+              <h4>Net Profit vs Revenue</h4>
+              <p>A common mistake is for a CLV prediction to calculate the total revenue or even gross margin associated with a customer. However, this can cause CLV to be multiples of their actual value, and instead need to be calculated as the full net profit expected from the customer. This CLV model is based for simplicity on gross profit margin, however if one can estimate the full net profit expected from the customer, it can via setting the % accordingly.</p>
+              <h4>Segment Inaccuracy</h4>
+              <p>Opponents often cite the inaccuracy of a CLV prediction to argue they should not be used to drive significant business decisions. For example, major drivers to the value of a customer such as the nature of the relationship are often not available as appropriately structured data and thus not included in the formula.</p>
+              <h4>Comparison with Intuition</h4>
+              <p>More, predictors such as specific demographics of a customer group may have an effect that is intuitively obvious to an experienced marketer, but are often omitted from CLV predictions and thus cause inaccuracies in certain customer segments.</p>
+
+              <h3>External links</h3>
+              <ol>
+                <li><a href="https://www.custora.com/home/customer_lifetime_value">custora.com/home/customer_lifetime_value</a></li>
+                <li><a href="http://www.mineful.com/customer-retention-roi-calculator.html">Free customer lifetime value calculator</a></li>
+                <li><a href="http://www.kaushik.net/avinash/analytics-tip-calculate-ltv-customer-lifetime-value/">kaushik.net/avinash/analytics-tip-calculate-ltv-customer-lifetime-value/</a></li>
+                <li><a href="http://ariegoldshlager.posterous.com/recommend-reading-customer-lifetime-value-pot">ariegoldshlager.posterous.com/recommend-reading-customer-lifetime-value-pot</a></li>
+                <li><a href="http://www.quora.com/Turki-Fahad/Great-Stuff/How-do-you-calculate-Customer-Lifetime-Value">quora: How-do-you-calculate-Customer-Lifetime-Value</a></li>
+              </ol>
+              <p class="reserve">&nbsp;</p>
             </div>
           </div>
 		    </div>
@@ -291,7 +288,7 @@ $100 avg monthly spend * 25% margin / 5% monthly churn = $500 LTV <sup id="cite_
 
       <div id="footer">
         <p>Created at Google in 2012.</p> 
-        <p class="footer-authors"><a href="http://code.google.com">Code</a> (by Filip Hracek) is open source. Text &amp; model (by Tomas Kasman, Vlado Hruda and Petr Sadilek) are <a href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons licensed</a>. Online&#8209;to&#8209;store data from <a href="http://www.consumerbarometer.com/">Consumer Barometer</a>.</p>
+        <p class="footer-authors"><a href="http://code.google.com">Code</a> (by Filip Hracek) is open source. Text &amp; model (by Tomas Kasman, Vlado Hruda, Petr Sadilek and Peter Komornik) are <a href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons licensed</a>. Online&#8209;to&#8209;store data from <a href="http://www.consumerbarometer.com/">Consumer Barometer</a>.</p>
         <div style="clear:both"></div>
       </div>
 	
