@@ -343,6 +343,7 @@ class LtvModel {
         ..selectionEnd = _linkForSharing.value.length;
       e.stopPropagation();
     });
+    _linkForSharing.value = window.location.href;
   }
   
   InputElement get linkForSharing => _linkForSharing;
@@ -415,19 +416,21 @@ void main() {
   loadingDiv.classes.add("hide3d");
   window.setTimeout(() => loadingDiv.remove(), 300);
   
-  
   // roll out the methodology
   query("a#methodology-link").on.click.add((e) {
     e.preventDefault();
     var methodology = query("div#methodology");
+    var arrow = query("span#methodology-arrow");
     if (methodology.style.height == null || methodology.style.height.startsWith("0")
         || methodology.style.height == "") {
       query("div#methodology-inside-wrapper").computedStyle
       .then((cssStyle) {
         methodology.style.height = cssStyle.height;
+        arrow.innerHTML = "&#x25B2;";
       });
     } else {
       methodology.style.height = "0";
+      arrow.innerHTML = "&#x25BC;";
     }
     
   });
