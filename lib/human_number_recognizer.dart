@@ -1,30 +1,30 @@
 
-#library("human_number_recognizer");
+library human_number_recognizer;
 
-#import("dart:math");
+import "dart:math";
 
 class HumanNumber {
   // TODO: have state = setup "locale", "learn", etc.
   
   // Ex: -1 165 849.918
   static RegExp validEnglishLargeNumber = 
-      const RegExp(@"^\s*([-+]?\s*([0-9]{1,3}[, ])+[0-9]{3}(\.?[0-9]+)*)\s*$");
+      const RegExp(r"^\s*([-+]?\s*([0-9]{1,3}[, ])+[0-9]{3}(\.?[0-9]+)*)\s*$");
   // Ex: -1.165.849,918
   static RegExp validCzechLargeNumber = 
-      const RegExp(@"^\s*([-+]?\s*([0-9]{1,3}[. ])+[0-9]{3}(\,?[0-9]+)*)\s*$");
+      const RegExp(r"^\s*([-+]?\s*([0-9]{1,3}[. ])+[0-9]{3}(\,?[0-9]+)*)\s*$");
   // Ex: 1,400
   static RegExp thousandLookingNumber =
-      const RegExp(@"^\s*([-+]?\s*[0-9]{1,3}[,\. ][0-9]{2}0)\s*$");
+      const RegExp(r"^\s*([-+]?\s*[0-9]{1,3}[,\. ][0-9]{2}0)\s*$");
   // Ex: 15616.8, but also "489,48984,,,6.46,"
   static RegExp numberCharsString = 
-      const RegExp(@"^\s*([-+]?\s*[0-9,\. ]*[0-9])\s*$");
+      const RegExp(r"^\s*([-+]?\s*[0-9,\. ]*[0-9])\s*$");
   static RegExp numberCharsStringWithEndingDot = 
-      const RegExp(@"^\s*([-+]?\s*[0-9,\. ]*[0-9])[\.,]\s*$");
+      const RegExp(r"^\s*([-+]?\s*[0-9,\. ]*[0-9])[\.,]\s*$");
   static RegExp numberCharsStringWithEndingPercentage = 
-      const RegExp(@"^\s*([-+]?\s*[0-9,\. ]*[0-9])[\.,]?\s*%\s*$");
+      const RegExp(r"^\s*([-+]?\s*[0-9,\. ]*[0-9])[\.,]?\s*%\s*$");
   
-  static RegExp whiteSpace = const RegExp(@"\s");
-  static RegExp commaOrDot = const RegExp(@"[\.,]");
+  static RegExp whiteSpace = const RegExp(r"\s");
+  static RegExp commaOrDot = const RegExp(r"[\.,]");
   
   static num recognizeString(String s) {
     
@@ -67,7 +67,7 @@ class HumanNumber {
     num result = null;
     
     try {
-      result = parseDouble(s.replaceAll(whiteSpace, ""));
+      result = double.parse(s.replaceAll(whiteSpace, ""));
     } on FormatException catch (e) {
       print("Format Exception for string '$s': $e");
     }

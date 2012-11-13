@@ -1,3 +1,7 @@
 name: life-time-value
 version: 0.1.0
 author: Filip Hracek <filiph@google.com>
+
+dependencies:
+  unittest:
+    sdk: unittest

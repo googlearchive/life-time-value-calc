@@ -1,8 +1,8 @@
-#import('dart:html');
-#import('dart:uri');
-#import('dart:math');
-#import('ropo_values.dart');
-#import('human_number_recognizer.dart');
+import 'dart:html';
+import 'dart:uri';
+import 'dart:math';
+import 'src/ropo_values.dart';
+import 'human_number_recognizer.dart';
 
 class BindedValue {
   List<Element> _elements;
@@ -13,7 +13,7 @@ class BindedValue {
   
   int precision = 2;
   
-  BindedValue(String query, [LtvModel this.model, bool this.isPercentage = false]) {
+  BindedValue(String query, LtvModel this.model, {bool this.isPercentage: false}) {
     _elements = new List<Element>();
     _elements.add(document.query(query));
     _value = _readNumberFrom(_elements[0]);
@@ -38,7 +38,7 @@ class BindedValue {
     });
   }
   
-  void inputListener(Event e, [bool forceNoRecalculate = false]) {
+  void inputListener(Event e, {bool forceNoRecalculate: false}) {
     Element eventEl = (e != null && e.target != null) ? e.target : _elements[0];
     num n = _readNumberFrom(eventEl);
     if (n != null) {
@@ -104,11 +104,11 @@ class BindedValue {
   
   void _writeValueTo(Element el) {
     String s;
-    if (_value.isInfinite() && !_value.isNegative())
+    if (_value.isInfinite && !_value.isNegative)
       s = "∞";
-    else if (_value.isInfinite() && _value.isNegative())
+    else if (_value.isInfinite && _value.isNegative)
       s = "-∞";
-    else if (_value.isNaN())
+    else if (_value.isNaN)
       s = "not calculable";
     else if (isPercentage) 
       s = "${(_value * 100.0).toStringAsFixed(precision)}%";
@@ -119,7 +119,7 @@ class BindedValue {
       (el as InputElement).value = s;
     } else {
       el.text = s;
-      if (_value.isNegative())
+      if (_value.isNegative)
         el.classes.add("negative-number");
       else
         el.classes.remove("negative-number");
@@ -134,7 +134,7 @@ class BindedValue {
     //new Timer(500, (_) => el.classes.remove("highlight"));
   }
 
-  num get value() => _value;
+  num get value => _value;
   
   set value(val) {
     if (val == _value)
@@ -145,7 +145,7 @@ class BindedValue {
     });
   }
   
-  String get elValue() {
+  String get elValue {
     return _getTextOrValueFrom(_elements[0]);
   }
   

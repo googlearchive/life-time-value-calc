@@ -1,6 +1,6 @@
 
-#import('/Applications/dart/dart-sdk/pkg/unittest/unittest.dart');
-#import('human_number_recognizer.dart');
+import '../packages/unittest/unittest.dart'; 
+import '../lib/human_number_recognizer.dart';
 
 main() {
   Function rec = HumanNumber.recognizeString;
