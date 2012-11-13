@@ -1,3 +1,5 @@
+/* @override http://127.0.0.1:3030/Users/filiph/dev/lifetime-value/example/life-time-value/css/ltv.css */
+
 /* @override http://127.0.0.1:3030/Users/filiph/dart/ltv/ltv.css */
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -18,87 +20,87 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
+
 body {
-	line-height: 1;
+  line-height: 1;
 }
+
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
+
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
+
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* CSS START */
-
 
 body {
   background-color: #F8F8F8;
   font-family: 'Open Sans', sans-serif;
   font-weight: normal;
-  
 }
 
 div#matrioska {
-	-webkit-perspective: 2000px;
-	-webkit-transform-style: preserve-3d;
+  -webkit-perspective: 2000px;
+  -webkit-transform-style: preserve-3d;
 }
 
 div#loading-div {
-	position: absolute;
-	background: white;
-	border-radius: 1em;
-	border: 5px outset #ddd;
-	width: 60%;
-	left: 20%;
-	top: 15em;
-	
-	transition: transform 0.3s;
-	-webkit-transition: -webkit-transform 0.3s;
-	-moz-transition: -moz-transform 0.3s;
-	
-	z-index: 1;
+  position: absolute;
+  background: white;
+  border-radius: 1em;
+  border: 5px outset #ddd;
+  width: 60%;
+  left: 20%;
+  top: 15em;
+  transition: transform 0.3s;
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  z-index: 1;
 }
 
 div#loading-div.hide3d {
-	-webkit-perspective: 200;
-	
-	transform: rotateX(85deg); 
-	-webkit-transform: rotateX(85deg); 
-	-moz-transform: rotateX(85deg); 
-	
-
+  -webkit-perspective: 200;
+  transform: rotateX(85deg);
+  -webkit-transform: rotateX(85deg);
+  -moz-transform: rotateX(85deg);
 }
 
 div#loading-div p {
-	margin: 1em;
-	text-align: center;
-	font-size: 150%;
+  margin: 1em;
+  text-align: center;
+  font-size: 150%;
 }
 
 div#loading-div p img {
-	max-height: 0.8em;
-	margin-right: 0.2em;
+  max-height: 0.8em;
+  margin-right: 0.2em;
 }
 
 p, td {
@@ -106,440 +108,476 @@ p, td {
 }
 
 a {
-	color: #3369E8;
+  color: #3369E8;
 }
 
 strong {
-	font-weight: bold;
-	color: #000;
+  font-weight: bold;
+  color: #000;
 }
 
 div#topBar {
-	padding: 1.5em 5% 1em;
+  padding: 1.5em 5% 1em;
 }
 
 h1 {
-	font-size: 150%;
-	font-weight: bold;
+  font-size: 150%;
+  font-weight: bold;
 }
 
 h1 a {
-	color: #333;
-	text-decoration: none;
+  color: #333;
+  text-decoration: none;
 }
 
 div#main {
-	margin: 0;
-	background-color: white;
-	padding: 1em 5%;
+  margin: 0;
+  background-color: white;
+  padding: 1em 5%;
 }
 
 div#inputs {
-	float: left;
-	width: 40%;
-	max-width: 25em;
+  float: left;
+  width: 40%;
+  max-width: 25em;
 }
 
 p#currency-disclaimer {
-	font-size: 80%;
+  font-size: 80%;
 }
 
 p#currency-disclaimer input {
-	width: 2em;
-	padding: 0;
-	text-align: center;
+  width: 2em;
+  padding: 0;
+  text-align: center;
 }
 
 table {
-	margin-top: 1em;
-	width: 100%;
-	border-top: 1px solid #ccc;
+  margin-top: 1em;
+  width: 100%;
+  border-top: 1px solid #ccc;
 }
 
 td, th {
-	padding: 0.3em 0;
-	text-align: right;
-	vertical-align: middle;
+  padding: 0.3em 0;
+  text-align: right;
+  vertical-align: middle;
 }
 
 th {
-	color: #3369E8;
-	text-align: left;
-	padding: 0.8em 0;
-	text-transform: uppercase;
-	letter-spacing: 0.2em;
-	font-size: 80%;
+  color: #3369E8;
+  text-align: left;
+  padding: 0.8em 0;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 80%;
 }
 
 div.question-mark {
-	display: inline;
-	position: relative;
-	cursor: pointer;
+  display: inline;
+  position: relative;
+  cursor: pointer;
 }
 
 div.additional-notes {
-	display: none;
-	border: 5px solid #ddd;
-		position: absolute;
-	top: 0.5em;
-	left: 2em;
-	width: 20em;
-	text-align: left;
-	font-size: 85%;
-	padding: 0.5em;
-	background: #f9f9f9;
+  display: none;
+  border: 5px solid #ddd;
+  position: absolute;
+  top: 0.5em;
+  left: 2em;
+  width: 20em;
+  text-align: left;
+  font-size: 85%;
+  padding: 0.5em;
+  background: #f9f9f9;
 }
 
 div.question-mark:hover div.additional-notes {
-	display: block;
+  display: block;
 }
 
 table td:last-child {
-	width: 6em;
+  width: 6em;
 }
 
 div#inputs span.currency-placeholder {
-	font-size: 80%;
-	width: 2.5em;
-	height: 1.5em;
-	overflow: hidden;
-	display: inline-block;
+  font-size: 80%;
+  width: 2.5em;
+  height: 1.5em;
+  overflow: hidden;
+  display: inline-block;
 }
 
 input {
-	/*background: #eef3ff;*/
+ 
+
+/*background: #eef3ff;*/
 	background: #f8f8f8;
-	font-size: 100%;
-	padding: 0.2em;
-	border-radius: 0.2em;
-	width: 3em;
-	text-align: right;
-	border: 1px inset #ccc;
+  font-size: 100%;
+  padding: 0.2em;
+  border-radius: 0.2em;
+  width: 3em;
+  text-align: right;
+  border: 1px inset #ccc;
 }
 
 input.invalid {
-	background-color: #ffcbcc;
+  background-color: #ffcbcc;
 }
 
 select {
-	margin-left: 2em;
-	width: 15em;
+  margin-left: 2em;
+  width: 15em;
 }
 
 div#outputs {
-	float: left;
-	width: 50%;
-	max-width: 43em;
-	margin-left: 10%;
-	padding-top: 2em;
+  float: left;
+  width: 50%;
+  max-width: 43em;
+  margin-left: 10%;
+  padding-top: 2em;
 }
 
 div#outputs p {
-	margin: 1em 0;
-	font-size: 150%;
-	line-height: 130%;
+  margin: 1em 0;
+  font-size: 150%;
+  line-height: 130%;
 }
 
 div#outputs p span {
-	color: #009925;
+  color: #009925;
 }
 
 span#breakEvenCPC, span#lifetimeValue, span#cpa, span#profitPerCustomer, span#cpc-considering, span#roi {
-	padding: 0 0.3em;
-
+  padding: 0 0.3em;
 }
 
 span.highlight#breakEvenCPC, span.highlight#roi {
-
-	animation: highlight 0.5s;
-	-moz-animation: highlight 0.5s;
-	-webkit-animation: highlight 0.5s; 
-	-o-animation: highlight 0.5s;
+  animation: highlight 0.5s;
+  -moz-animation: highlight 0.5s;
+  -webkit-animation: highlight 0.5s;
+  -o-animation: highlight 0.5s;
 }
 
-@keyframes highlight
-{
-	0%   {background:none;}
-	20%  {background:#fefccb;}
-	100% {background:none;}
+@keyframes highlight {
+  0%   {background: none;
 }
 
-@-moz-keyframes highlight /* Firefox */
-{
-	0%   {background:none;}
-	20%  {background:#fefccb;}
-	100% {background:none;}
+20% {
+  background: #fefccb;
 }
 
-@-webkit-keyframes highlight /* Safari and Chrome */
-{
-	0%   {background:none;}
-	20%  {background:#fefccb;}
-	100% {background:none;}
+100% {
+  background: none;
 }
 
-@-o-keyframes highlight /* Opera */
-{
-	0%   {background:none;}
-	20%  {background:#fefccb;}
-	100% {background:none;}
+}
+
+@-moz-keyframes highlight 
+
+/* Firefox */ {
+  0%   {background: none;
+}
+
+20% {
+  background: #fefccb;
+}
+
+100% {
+  background: none;
+}
+
+}
+
+@-webkit-keyframes highlight 
+
+/* Safari and Chrome */ {
+  0%   {background: none;
+}
+
+20% {
+  background: #fefccb;
+}
+
+100% {
+  background: none;
+}
+
+}
+
+@-o-keyframes highlight 
+
+/* Opera */ {
+  0%   {background: none;
+}
+
+20% {
+  background: #fefccb;
+}
+
+100% {
+  background: none;
+}
+
 }
 
 
 span#lifetimeValue, span#cpa, span#profitPerCustomer {
-
+  
 }
 
 div#outputs p span.negative-number {
-	color: #D50F25;
+  color: #D50F25;
 }
 
 table#graph {
-	border: none;
-	margin: 2em 0;
+  border: none;
+  margin: 2em 0;
 }
 
 table#graph td {
-	text-align: center;
-	border: none;
-	font-size: 120%;
+  text-align: center;
+  border: none;
+  font-size: 120%;
 }
 
 tr.r1 td {
-	padding-bottom: 1em;
+  padding-bottom: 1em;
 }
 
 tr.r3 {
-	border-bottom: 1px dashed #999;
+  border-bottom: 1px dashed #999;
 }
 
 tr.r4 {
-	border-top: 1px dashed #999;
+  border-top: 1px dashed #999;
 }
 
 td.c1, td.c3, td.c5, td.c7 {
-	width: 5%;
+  width: 5%;
 }
 
 td.c2, td.c4, td.c6 {
-	width: 27%;
+  width: 27%;
 }
 
 td.customer-ltv {
-	background: #009925;
+  background: #009925;
 }
 
 td.cpa {
-	background: #999;
-	color: white;
+  background: #999;
+  color: white;
 }
 
 td.bar.profit-per-customer {
-	background: #3369E8;
+  background: #3369E8;
 }
 
 tr.r5 td {
-	padding-top: 1em;
+  padding-top: 1em;
 }
 
 tr.r2, tr.r3, tr.r4 {
-	transition: height 0.3s;
-	-moz-transition: height 0.3s;
-	-webkit-transition: height 0.3s; 
-	-o-transition: height 0.3s;
+  transition: height 0.3s;
+  -moz-transition: height 0.3s;
+  -webkit-transition: height 0.3s;
+  -o-transition: height 0.3s;
 }
 
 tr.r2 td, tr.r3 td, tr.r4 td {
-	line-height: 0;
+  line-height: 0;
 }
 
 /* initial graph values */
+
 tr.r2 {
-	height: 7.32640053673264em;
+  height: 7.32640053673264em;
 }
 
 tr.r3 {
-	height: 2.67359946326736em;
+  height: 2.67359946326736em;
 }
 
 tr.r4 {
-	display: none;
+  display: none;
 }
 
 div#outputs h3 {
-	margin-top: 4em;
-	border-top: 1px solid #ccc;
-	color: #3369E8;
-	text-align: left;
-	padding: 0.8em 0;
-	text-transform: uppercase;
-	letter-spacing: 0.2em;
-	font-size: 80%;
+  margin-top: 4em;
+  border-top: 1px solid #ccc;
+  color: #3369E8;
+  text-align: left;
+  padding: 0.8em 0;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 80%;
 }
 
 ul#what-next li {
-	margin-left: 2em;
-	font-size: 80%;
-	list-style-type: circle;
-	color: #666;
+  margin-left: 2em;
+  font-size: 80%;
+  list-style-type: circle;
+  color: #666;
 }
 
 input#link-for-sharing {
-	width: 15em;
-	font-size: 80%;
-	color: #666;
+  width: 15em;
+  font-size: 80%;
+  color: #666;
 }
 
 span#methodology-arrow {
-	color: #3369E8;
-	font-size: 50%;
+  color: #3369E8;
+  font-size: 50%;
 }
 
 span.no-linebreak {
-	display: inline-block;
-	text-align: right;
+  display: inline-block;
+  text-align: right;
 }
 
 div#methodology {
-	height: 0;
-	overflow: hidden;
-	transition: height 0.3s;
-	-moz-transition: height 0.3s;
-	-webkit-transition: height 0.3s; 
-	-o-transition: height 0.3s;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s;
+  -moz-transition: height 0.3s;
+  -webkit-transition: height 0.3s;
+  -o-transition: height 0.3s;
 }
 
 div#methodology-inside-wrapper {
-	padding: 2em 0;
+  padding: 2em 0;
 }
 
 div#methodology h2 {
-	border-top: 1px solid #ccc;
-	padding-top: 1em;
-	font-size: 140%;
-	font-weight: bold;
+  border-top: 1px solid #ccc;
+  padding-top: 1em;
+  font-size: 140%;
+  font-weight: bold;
 }
 
 div#methodology h3 {
-	margin-top: 1em;
-	border-top: none;
-	color: 3369E8;
-	padding: 0.8em 0;
-	text-transform: uppercase;
-	letter-spacing: 0.2em;
-	font-size: 100%;
+  margin-top: 1em;
+  border-top: none;
+  color: 3369E8;
+  padding: 0.8em 0;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 100%;
 }
 
 div#methodology h4 {
-	margin-top: 1.5em;
+  margin-top: 1.5em;
 }
 
 div#methodology p {
-	font-size: 100%;
-	line-height: 1.5em;
+  font-size: 100%;
+  line-height: 1.5em;
 }
 
 div#methodology p.reserve {
-	height: 3em;
+  height: 3em;
 }
 
 div#methodology ul, div#methodology ol {
-	margin-top: 0.5em;
+  margin-top: 0.5em;
 }
 
 div#methodology li {
-	margin-left: 2em;
-	margin-bottom: 0.5em;
-	line-height: 1.5em;
+  margin-left: 2em;
+  margin-bottom: 0.5em;
+  line-height: 1.5em;
 }
 
 div#methodology ul li {
-	list-style-type: circle;	
+  list-style-type: circle;
 }
 
 div#methodology ol li {
-	list-style-type: decimal;	
+  list-style-type: decimal;
 }
 
 div#methodology img {
-	max-width: 100%;
+  max-width: 100%;
 }
 
-
 div#footer {
-	margin: 2em 0;
+  margin: 2em 0;
 }
 
 div#footer p {
-	font-size: 70%;
-	margin: 0 5%;
-	text-align: right;
-	width: 60%;
-	float: right;
-	color: #666;
-	line-height: 1.5em;
+  font-size: 70%;
+  margin: 0 5%;
+  text-align: right;
+  width: 60%;
+  float: right;
+  color: #666;
+  line-height: 1.5em;
 }
 
 div#footer p.footer-authors {
-	color: #999;
+  color: #999;
 }
 
 div#footer p a {
-	color: #666;
-	text-decoration: none;
+  color: #666;
+  text-decoration: none;
 }
 
 div#footer p a:hover {
-	color: #3369E8;
+  color: #3369E8;
 }
 
 div#belowInputsAndOutputs {
-	clear: both;
-	height: 2em;
+  clear: both;
+  height: 2em;
 }
 
 /* @group Media Queries */
 
 @media screen and (max-width: 1120px) {
-	body {
-		font-size: 90%;
-	}
-	
-	div#outputs {
-		padding-top: 0;
-	}
+
+body {
+  font-size: 90%;
+}
+
+div#outputs {
+  padding-top: 0;
+}
+
 }
 
 @media screen and (max-width: 900px) {
-	div#inputs select {
-		display: block;
-		margin-left: auto;
-		margin-top: 0.8em;
-	}
+
+div#inputs select {
+  display: block;
+  margin-left: auto;
+  margin-top: 0.8em;
+}
+
 }
 
 @media screen and (max-width: 630px) {
-	div#inputs {
-		float: none;
-		clear: both;
-		width: 100%;
-		max-width: none;
-		margin-right: 1em;
-		border-bottom: 1em solid #ccc;
-		padding-bottom: 2em;
-	}
-	
-	div#outputs {
-		padding-top: 0;
-		float: none;
-		clear: both;
-		width: 100%;
-		margin-left: 0;
-	}
+
+div#inputs {
+  float: none;
+  clear: both;
+  width: 100%;
+  max-width: none;
+  margin-right: 1em;
+  border-bottom: 1em solid #ccc;
+  padding-bottom: 2em;
+}
+
+div#outputs {
+  padding-top: 0;
+  float: none;
+  clear: both;
+  width: 100%;
+  margin-left: 0;
+}
+
 }
 
 /* @end */
-
-
-
-
