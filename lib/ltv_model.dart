@@ -35,6 +35,8 @@ class BoundValue {
         model.pushState();
     });
 
+    _addAutoValueBlurListenerTo(_elements[0]);
+
     if (isPercentage)
       _addPercentageBlurListenerTo(_elements[0]);
   }
@@ -43,6 +45,7 @@ class BoundValue {
     newElements.forEach((Element el) {
       _elements.add(el);
       el.on.input.add((e) => inputListener(e));
+      _addAutoValueBlurListenerTo(el);
       if (isPercentage)
         _addPercentageBlurListenerTo(el);
       _writeValueTo(el);
@@ -51,12 +54,7 @@ class BoundValue {
 
   void inputListener(Event e, {bool forceNoRecalculate: false}) {
     Element eventEl = (e != null && e.target != null) ? e.target : _elements[0];
-    num n;
-    if (_getStringFrom(eventEl).trim() == "" && autoGetValue != null) {
-      n = autoGetValue();
-    } else {
-      n = _readNumberFrom(eventEl);
-    }
+    num n = _readNumberFrom(eventEl);
     if (n != null) {
       bool sameValue = _value == n;
       _value = n;
@@ -83,6 +81,17 @@ class BoundValue {
       String s = _getStringFrom(el);
       if (!HumanNumber.numberCharsStringWithEndingPercentage.hasMatch(s)) {
         _setTextOrValueTo(el, "$s%");
+      }
+    });
+  }
+
+  void _addAutoValueBlurListenerTo(Element el) {
+    el.on.blur.add((Event e) {
+      if (autoGetValue != null && _getStringFrom(el).trim() == "") {
+        value = autoGetValue();
+        if (model != null) {
+          model.recalculate(null);
+        }
       }
     });
   }
@@ -167,6 +176,7 @@ class BoundValue {
     _value = val;
     _elements.forEach((el) {
       _writeValueTo(el);
+      el.classes.remove("invalid");
     });
   }
 
@@ -226,7 +236,6 @@ class LtvModel {
     year3PurchaseValue.autoGetValue = () => year2PurchaseValue.value;
     year2PurchasesPerYear.autoGetValue = () => purchasesPerYear.value;
     year3PurchasesPerYear.autoGetValue = () => purchasesPerYear.value;
-    repurchase.autoGetValue = () => (customerLifetime.value - 1) / customerLifetime.value; // TODO: needed?
     year2RetentionRate.autoGetValue = () => (customerLifetime.value - 1)/customerLifetime.value;
     year3RetentionRate.autoGetValue = () => year2RetentionRate.value * (customerLifetime.value - 1)/customerLifetime.value;
 
@@ -248,7 +257,6 @@ class LtvModel {
     year3PurchaseValue.recalculate();
     year2PurchasesPerYear.recalculate();
     year3PurchasesPerYear.recalculate();
-    repurchase.recalculate(); // TODO: needed?
     year2RetentionRate.recalculate();
     year3RetentionRate.recalculate();
 

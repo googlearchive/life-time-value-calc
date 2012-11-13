@@ -106,4 +106,22 @@ void main() {
 
   });
 
+  // basic/advanced tabs
+  var basicTab = query("a#basic-tab");
+  var advancedTab = query("a#advanced-tab");
+  basicTab.on.click.add((e) {
+    basicTab.classes.add("selected");
+    advancedTab.classes.remove("selected");
+    for (var el in queryAll("div#inputs tr.advanced")) {
+      el.style.display = "none";
+    }
+  });
+
+  advancedTab.on.click.add((e) {
+    basicTab.classes.remove("selected");
+    advancedTab.classes.add("selected");
+    for (var el in queryAll("div#inputs tr.advanced")) {
+      el.style.display = "table-row";
+    }
+  });
 }

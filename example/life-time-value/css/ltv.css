@@ -185,7 +185,7 @@ div#inputs-tabs a:hover, div#inputs-tabs a.selected:hover {
 div#inputs-tabs a.selected {
   border-bottom: 1px solid white;
   background: white;
-  color: black;
+  color: #3369E8;
 }
 
 div#inputs-fields {
@@ -203,6 +203,9 @@ div#inputs table#productConversions {
   margin-top: 0;
 }
 
+div#inputs tr.advanced {
+  display: none;
+}
 
 div#inputs table {
   margin-top: 1em;
