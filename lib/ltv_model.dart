@@ -7,7 +7,7 @@ import 'human_number_recognizer.dart';
 
 final String TITLE = "Life-Time Value and Break-Even Online Calculator";
 
-class BindedValue {
+class BoundValue {
   List<Element> _elements;
   num _value;
   bool isPercentage;
@@ -16,7 +16,7 @@ class BindedValue {
 
   int precision = 2;
 
-  BindedValue(String query, LtvModel this.model, {bool this.isPercentage: false}) {
+  BoundValue(String query, LtvModel this.model, {bool this.isPercentage: false}) {
     _elements = new List<Element>();
     _elements.add(document.query(query));
     _value = _readNumberFrom(_elements[0]);
@@ -166,11 +166,11 @@ class LtvModel {
   InputElement _currencyInputEl;
 
   // input values
-  BindedValue cpc, conversionRate, firstPurchase, customerLifetime, repurchase,
+  BoundValue cpc, conversionRate, firstPurchase, customerLifetime, repurchase,
   referralRate, grossMargin, ropoCoefficient, costOfCapital;
 
   // output values
-  BindedValue suggestedRopoCoefficient, cpa, totalOnOffPurchase, totalPurchasePlusRepeat,
+  BoundValue suggestedRopoCoefficient, cpa, totalOnOffPurchase, totalPurchasePlusRepeat,
   referralAdditionalRevenue, totalPurchasePlusRepeatAndReferral, lifetimeValue, profitPerCustomer, roi,
   breakEvenCPC;
 

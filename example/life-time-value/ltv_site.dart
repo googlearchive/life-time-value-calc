@@ -8,15 +8,15 @@ void main() {
 
   model.currencyInputEl = query("#currency-set");
 
-  model.cpc = new BindedValue("#cpc", model);
+  model.cpc = new BoundValue("#cpc", model);
   model.cpc.addElements([query("#cpc-considering")]);
-  model.conversionRate = new BindedValue("#conversionRate", model, isPercentage:true);
-  model.firstPurchase = new BindedValue("#firstPurchase", model);
-  model.customerLifetime = new BindedValue("#customerLifetime", model);
-  model.repurchase = new BindedValue("#repurchase", model, isPercentage:true);
-  model.referralRate = new BindedValue("#referralRate", model, isPercentage:true);
-  model.grossMargin = new BindedValue("#grossMargin", model, isPercentage:true);
-  model.costOfCapital = new BindedValue("#costOfCapital", model, isPercentage:true);
+  model.conversionRate = new BoundValue("#conversionRate", model, isPercentage:true);
+  model.firstPurchase = new BoundValue("#firstPurchase", model);
+  model.customerLifetime = new BoundValue("#customerLifetime", model);
+  model.repurchase = new BoundValue("#repurchase", model, isPercentage:true);
+  model.referralRate = new BoundValue("#referralRate", model, isPercentage:true);
+  model.grossMargin = new BoundValue("#grossMargin", model, isPercentage:true);
+  model.costOfCapital = new BoundValue("#costOfCapital", model, isPercentage:true);
 
   model.ropoCategoryEl = query("#ropoCategory");
   model.destinationCountryEl = query("#destinationCountry");
@@ -31,22 +31,22 @@ void main() {
     });
   });
 
-  model.suggestedRopoCoefficient = new BindedValue("#suggestedRopoCoefficient", model);
-  model.ropoCoefficient = new BindedValue("#ropoCoefficient", model);
+  model.suggestedRopoCoefficient = new BoundValue("#suggestedRopoCoefficient", model);
+  model.ropoCoefficient = new BoundValue("#ropoCoefficient", model);
 
-  model.cpa = new BindedValue("#cpa", model);
+  model.cpa = new BoundValue("#cpa", model);
   model.cpa.precision = 0;
-  model.totalOnOffPurchase = new BindedValue("#totalOnOffPurchase", model);
-  model.totalPurchasePlusRepeat = new BindedValue("#totalPurchasePlusRepeat", model);
-  model.referralAdditionalRevenue = new BindedValue("#referralAdditionalRevenue", model);
-  model.totalPurchasePlusRepeatAndReferral = new BindedValue("#totalPurchasePlusRepeatAndReferral", model);
-  model.lifetimeValue = new BindedValue("#lifetimeValue", model);
+  model.totalOnOffPurchase = new BoundValue("#totalOnOffPurchase", model);
+  model.totalPurchasePlusRepeat = new BoundValue("#totalPurchasePlusRepeat", model);
+  model.referralAdditionalRevenue = new BoundValue("#referralAdditionalRevenue", model);
+  model.totalPurchasePlusRepeatAndReferral = new BoundValue("#totalPurchasePlusRepeatAndReferral", model);
+  model.lifetimeValue = new BoundValue("#lifetimeValue", model);
   model.lifetimeValue.precision = 0;
-  model.profitPerCustomer = new BindedValue("#profitPerCustomer", model);
+  model.profitPerCustomer = new BoundValue("#profitPerCustomer", model);
   model.profitPerCustomer.precision = 0;
-  model.roi = new BindedValue("#roi", model, isPercentage:true);
+  model.roi = new BoundValue("#roi", model, isPercentage:true);
   model.roi.precision = 0;
-  model.breakEvenCPC = new BindedValue("#breakEvenCPC", model);
+  model.breakEvenCPC = new BoundValue("#breakEvenCPC", model);
 
   model.graphRowTop = query("table#graph tr.r2");
   model.graphRowMiddle = query("table#graph tr.r3");
