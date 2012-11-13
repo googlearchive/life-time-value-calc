@@ -139,7 +139,7 @@ div#main {
 div#inputs {
   float: left;
   width: 40%;
-  max-width: 25em;
+  max-width: 27em;
 }
 
 p#currency-disclaimer {
@@ -152,7 +152,53 @@ p#currency-disclaimer input {
   text-align: center;
 }
 
-table {
+div#inputs-tabs {
+  position: relative;
+  margin-top: 1em;
+  height: 2.1em;
+  color: #3369E8;
+  text-align: right;
+  letter-spacing: 0.1em;
+  font-size: 80%;
+  border-bottom: 1px solid #ccc;
+}
+
+div#inputs-tabs a {
+  float: right;
+  height: 1.5em;
+  margin-left: 1em;
+  cursor: pointer;
+  background: #eee;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#eee));
+  padding: 0.6em 1em 0.0em 1em;
+  overflow: hidden;
+  border-radius: 0.5em 0.5em 0 0;
+  font-weight: bold;
+  border: 1px solid #ccc;
+}
+
+div#inputs-tabs a.selected {
+  border-bottom: 1px solid white;
+  background: white;
+}
+
+div#inputs-fields {
+  position: relative;
+  z-index: 10;
+  background: white;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-top: none;
+ /* border-radius: 0em 0 0.5em 0.6em;*/
+}
+
+div#inputs table#productConversions {
+  border-top: none;
+  margin-top: 0;
+}
+
+
+div#inputs table {
   margin-top: 1em;
   width: 100%;
   border-top: 1px solid #ccc;
@@ -209,8 +255,6 @@ div#inputs span.currency-placeholder {
 }
 
 input {
- 
-
 /*background: #eef3ff;*/
 	background: #f8f8f8;
   font-size: 100%;

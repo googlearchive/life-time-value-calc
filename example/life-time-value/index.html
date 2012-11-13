@@ -22,142 +22,148 @@
 	    <div id="main">
 		    <div id="inputs">
           <p id="currency-disclaimer">This calculation is currency independent, but feel free to to change the <input id="currency-set" type="text" value="$"> symbol here.</p>
-		      <table id="productConversions">
-		      	<tr><th colspan="2">Product Conversion</th></tr>
-		      	<tr>
-              <td>AdWords <strong>CPC</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">Your <strong>Cost-per-Click average</strong> in last 30 days - The amount that you actually pay each time someone clicks your ad. You can find it in AdWords.</div></div></td>
-              <td><span class="currency-placeholder">$</span> <input id="cpc" type="text" value="2.1"></td>
-		      	</tr>
-		      	<tr>
-              <td><strong>Conversion rate</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">Your <strong>conversion rate average in %</strong> in last 30 days - How often a click on your ad resulted in a conversion, a meaningful action like a sale, lead, or sign-up. You can find it in AdWords.</div></div></td>
-              <td><input id="conversionRate" type="text" value="2.5%"></td>
-		      	</tr>
-		      </table>
-		      <table id="productProfitability">
-		      	<tr><th colspan="2">Purchase Profitability</th></tr>
-		      	<tr>
-              <td>Your customers' <strong>first purchase</strong> value <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>first time purchase value</strong> of your customer - The average amount of money your customer spends for the first time.</div></div></td>
-              <td><span class="currency-placeholder">$</span> <input id="firstPurchase" type="text" value="100"></td>
-		      	</tr>
-		      	<tr>
-              <td><strong>Customer lifetime</strong> (in periods) <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes"><strong>Periods</strong> – the units of time into which a customer relationship is divided for analysis. A year is the most commonly used period - <strong>Customer Life-Time value</strong> is a multi-period calculation, usually stretching 3–7 years into the future. In practice, analysis beyond this point is viewed as too speculative to be reliable.</div></div></td><td><input id="customerLifetime" type="text" value="3"></td>
-		      	</tr>
-            <tr style="display:none">
-		      		<td>Re-purchase</td><td><input id="repurchase" type="text" value=""></td>
-		      	</tr>
-		      	<tr>
-		      		<td><strong>Referral rate</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>% rate in which customers continue to recommend or talk about their good experiences</strong> with their friends - If your referral rate is 10% it means that for every 10 customers there is 1 more customer from the recommendations.</div></div></td><td><input id="referralRate" type="text" value="10%"></td>
-		      	</tr>
-		      	<tr>
-		      		<td><strong>Gross profit margin</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>% proportion of money left over from revenues after accounting for cost of goods sold</strong>. Gross profit margin serves as the source for paying additional expenses and future savings.</div></div></td><td><input id="grossMargin" type="text" value="15%"></td>
-		      	</tr>
-		      </table>
-		      <table id="ropoEffect">
-            <tr><th colspan="2">Online-to-Store (O2S)</th></tr>
-		      	<tr>
-		      		<td colspan="2">O2S category
-		      			<select class="ropoDropDown" id="ropoCategory">
-		          			<option>None (No offline sales)</option>
-                    <option>Auto > Auto (avg.)</option>
-                    <option>Auto > Car parts or accessories</option>
-                    <option>Auto > Cars</option>
-                    <option>Finance > Finance (Avg.)</option>
-                    <option>Finance > Car insurance</option>
-                    <option>Finance > Home insurance</option>
-                    <option>Finance > Personal Loans</option>
-                    <option>Health > Health products</option>
-                    <option>Media > Media (avg)</option>
-                    <option>Media > Cinema tickets</option>
-                    <option>Media > Event tickets</option>
-                    <option>Media > Video games</option>
-                    <option>Retail > Retail (avg)</option>
-                    <option>Retail > Books</option>
-                    <option>Retail > CDs/DVDs</option>
-                    <option>Retail > Clothing & accessories</option>
-                    <option>Retail > Cosmetics/beauty products</option>
-                    <option selected>Retail > Domestic appliances</option>
-                    <option>Retail > Footwear</option>
-                    <option>Retail > Groceries</option>
-                    <option>Retail > Home and household goods</option>
-                    <option>Retail > Home furnishings/furniture</option>
-                    <option>Retail > Personal appliances</option>
-                    <option>Retail > Sports equipment</option>
-                    <option>Retail > Toys</option>
-                    <option>Tech > Tech (avg)</option>
-                    <option>Tech > Audio devices</option>
-                    <option>Tech > Computer hardware</option>
-                    <option>Tech > Computer peripherals</option>
-                    <option>Tech > Computer software</option>
-                    <option>Tech > Digital cameras/camcorders</option>
-                    <option>Tech > Mobile phone subscriptions</option>
-                    <option>Tech > Mobile phones</option>
-                    <option>Tech > Visual devices</option>
-                    <option>Travel > Travel (avg.)</option>
-                    <option>Travel > Business travel</option>
-                    <option>Travel > Hotel stays</option>
-                    <option>Travel > Leisure flights</option>
-                    <option>Travel > Package holidays</option>
-		      			</select>
-		      		</td>
-		      	</tr>
-		      	<tr>
-		      		<td colspan="2">Destination country
-		      			<select class="ropoDropDown" id="destinationCountry">
-		         			<option>Argentina</option>
-                    <option>Australia</option>
-                    <option>Austria</option>
-                    <option>Belgium</option>
-                    <option>Brazil</option>
-                    <option>Canada</option>
-                    <option selected>Czech Republic</option>
-                    <option>Denmark</option>
-                    <option>Finland</option>
-                    <option>France</option>
-                    <option>Germany</option>
-                    <option>Global</option>
-                    <option>Greece</option>
-                    <option>Hong Kong</option>
-                    <option>Hungary</option>
-                    <option>Ireland</option>
-                    <option>Israel</option>
-                    <option>Italy</option>
-                    <option>Japan</option>
-                    <option>Mexico</option>
-                    <option>Netherlands</option>
-                    <option>New Zealand</option>
-                    <option>Norway</option>
-                    <option>Poland</option>
-                    <option>Portugal</option>
-                    <option>Romania</option>
-                    <option>Russia</option>
-                    <option>Saudi Arabia</option>
-                    <option>Slovakia</option>
-                    <option>South Africa</option>
-                    <option>Spain</option>
-                    <option>Sweden</option>
-                    <option>Switzerland</option>
-                    <option>Taiwan</option>
-                    <option>Turkey</option>
-                    <option>UAE</option>
-                    <option>Ukraine</option>
-                    <option>United Kingdom</option>
-                    <option>USA</option>
-		      			</select>
-		      		</td>
-		      	</tr>
-		      	<tr style="display:none">
-		      		<td>Suggested Online-to-Store (O2S) factor</td><td><input id="suggestedRopoCoefficient" type="text" value="2.71"></td>
-		      	</tr>
-		      	<tr>
-              <td><strong>Online-to-Store (O2S) factor</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">O2S factor represents the <strong>coefficient by which you should multiply your online revenue to be able to incorporate also the part of offline sales which were influenced by online</strong> and thus be able to calculate the whole ROI of your digital marketing activities. O2S factor = 1 means you have no offline sales.</div></div></td><td><input id="ropoCoefficient" type="text" value="2.71"></td>
-		      	</tr>
-		      </table>
-		   	  <table id="costOfCapitalTable">
-		   	  	<tr><th colspan="2">Cost of Capital</th></tr>
-		      	<tr>
-		      		<td><strong>Cost of capital</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>% rate of return that capital could be expected to earn in an alternative investment of equivalent risk</strong>. It helps you in discounting the future revenues to the present value.</div></div></td><td><input id="costOfCapital" type="text" value="10%"></td>
-		      	</tr>
-		      </table>
+          <div id="inputs-tabs">
+            <a id="basic-tab" class="selected">Basic</a>
+            <a id="advanced-tab">Advanced</a>
+          </div>
+		      <div id="inputs-fields">
+            <table id="productConversions">
+              <tr><th colspan="2">Product Conversion</th></tr>
+              <tr>
+                <td>AdWords <strong>CPC</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">Your <strong>Cost-per-Click average</strong> in last 30 days - The amount that you actually pay each time someone clicks your ad. You can find it in AdWords.</div></div></td>
+                <td><span class="currency-placeholder">$</span> <input id="cpc" type="text" value="2.1"></td>
+              </tr>
+              <tr>
+                <td><strong>Conversion rate</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">Your <strong>conversion rate average in %</strong> in last 30 days - How often a click on your ad resulted in a conversion, a meaningful action like a sale, lead, or sign-up. You can find it in AdWords.</div></div></td>
+                <td><input id="conversionRate" type="text" value="2.5%"></td>
+              </tr>
+            </table>
+            <table id="productProfitability">
+              <tr><th colspan="2">Purchase Profitability</th></tr>
+              <tr>
+                <td>Your customers' <strong>first purchase</strong> value <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>first time purchase value</strong> of your customer - The average amount of money your customer spends for the first time.</div></div></td>
+                <td><span class="currency-placeholder">$</span> <input id="firstPurchase" type="text" value="100"></td>
+              </tr>
+              <tr>
+                <td><strong>Customer lifetime</strong> (in periods) <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes"><strong>Periods</strong> – the units of time into which a customer relationship is divided for analysis. A year is the most commonly used period - <strong>Customer Life-Time value</strong> is a multi-period calculation, usually stretching 3–7 years into the future. In practice, analysis beyond this point is viewed as too speculative to be reliable.</div></div></td><td><input id="customerLifetime" type="text" value="3"></td>
+              </tr>
+              <tr style="display:none">
+                <td>Re-purchase</td><td><input id="repurchase" type="text" value=""></td>
+              </tr>
+              <tr>
+                <td><strong>Referral rate</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>% rate in which customers continue to recommend or talk about their good experiences</strong> with their friends - If your referral rate is 10% it means that for every 10 customers there is 1 more customer from the recommendations.</div></div></td><td><input id="referralRate" type="text" value="10%"></td>
+              </tr>
+              <tr>
+                <td><strong>Gross profit margin</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>% proportion of money left over from revenues after accounting for cost of goods sold</strong>. Gross profit margin serves as the source for paying additional expenses and future savings.</div></div></td><td><input id="grossMargin" type="text" value="15%"></td>
+              </tr>
+            </table>
+            <table id="ropoEffect">
+              <tr><th colspan="2">Online-to-Store (O2S)</th></tr>
+              <tr>
+                <td colspan="2">O2S category
+                  <select class="ropoDropDown" id="ropoCategory">
+                      <option>None (No offline sales)</option>
+                      <option>Auto > Auto (avg.)</option>
+                      <option>Auto > Car parts or accessories</option>
+                      <option>Auto > Cars</option>
+                      <option>Finance > Finance (Avg.)</option>
+                      <option>Finance > Car insurance</option>
+                      <option>Finance > Home insurance</option>
+                      <option>Finance > Personal Loans</option>
+                      <option>Health > Health products</option>
+                      <option>Media > Media (avg)</option>
+                      <option>Media > Cinema tickets</option>
+                      <option>Media > Event tickets</option>
+                      <option>Media > Video games</option>
+                      <option>Retail > Retail (avg)</option>
+                      <option>Retail > Books</option>
+                      <option>Retail > CDs/DVDs</option>
+                      <option>Retail > Clothing & accessories</option>
+                      <option>Retail > Cosmetics/beauty products</option>
+                      <option selected>Retail > Domestic appliances</option>
+                      <option>Retail > Footwear</option>
+                      <option>Retail > Groceries</option>
+                      <option>Retail > Home and household goods</option>
+                      <option>Retail > Home furnishings/furniture</option>
+                      <option>Retail > Personal appliances</option>
+                      <option>Retail > Sports equipment</option>
+                      <option>Retail > Toys</option>
+                      <option>Tech > Tech (avg)</option>
+                      <option>Tech > Audio devices</option>
+                      <option>Tech > Computer hardware</option>
+                      <option>Tech > Computer peripherals</option>
+                      <option>Tech > Computer software</option>
+                      <option>Tech > Digital cameras/camcorders</option>
+                      <option>Tech > Mobile phone subscriptions</option>
+                      <option>Tech > Mobile phones</option>
+                      <option>Tech > Visual devices</option>
+                      <option>Travel > Travel (avg.)</option>
+                      <option>Travel > Business travel</option>
+                      <option>Travel > Hotel stays</option>
+                      <option>Travel > Leisure flights</option>
+                      <option>Travel > Package holidays</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">Destination country
+                  <select class="ropoDropDown" id="destinationCountry">
+                     <option>Argentina</option>
+                      <option>Australia</option>
+                      <option>Austria</option>
+                      <option>Belgium</option>
+                      <option>Brazil</option>
+                      <option>Canada</option>
+                      <option selected>Czech Republic</option>
+                      <option>Denmark</option>
+                      <option>Finland</option>
+                      <option>France</option>
+                      <option>Germany</option>
+                      <option>Global</option>
+                      <option>Greece</option>
+                      <option>Hong Kong</option>
+                      <option>Hungary</option>
+                      <option>Ireland</option>
+                      <option>Israel</option>
+                      <option>Italy</option>
+                      <option>Japan</option>
+                      <option>Mexico</option>
+                      <option>Netherlands</option>
+                      <option>New Zealand</option>
+                      <option>Norway</option>
+                      <option>Poland</option>
+                      <option>Portugal</option>
+                      <option>Romania</option>
+                      <option>Russia</option>
+                      <option>Saudi Arabia</option>
+                      <option>Slovakia</option>
+                      <option>South Africa</option>
+                      <option>Spain</option>
+                      <option>Sweden</option>
+                      <option>Switzerland</option>
+                      <option>Taiwan</option>
+                      <option>Turkey</option>
+                      <option>UAE</option>
+                      <option>Ukraine</option>
+                      <option>United Kingdom</option>
+                      <option>USA</option>
+                  </select>
+                </td>
+              </tr>
+              <tr style="display:none">
+                <td>Suggested Online-to-Store (O2S) factor</td><td><input id="suggestedRopoCoefficient" type="text" value="2.71"></td>
+              </tr>
+              <tr>
+                <td><strong>Online-to-Store (O2S) factor</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">O2S factor represents the <strong>coefficient by which you should multiply your online revenue to be able to incorporate also the part of offline sales which were influenced by online</strong> and thus be able to calculate the whole ROI of your digital marketing activities. O2S factor = 1 means you have no offline sales.</div></div></td><td><input id="ropoCoefficient" type="text" value="2.71"></td>
+              </tr>
+            </table>
+             <table id="costOfCapitalTable">
+               <tr><th colspan="2">Cost of Capital</th></tr>
+              <tr>
+                <td><strong>Cost of capital</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>% rate of return that capital could be expected to earn in an alternative investment of equivalent risk</strong>. It helps you in discounting the future revenues to the present value.</div></div></td><td><input id="costOfCapital" type="text" value="10%"></td>
+              </tr>
+            </table>
+		      </div>
 		      <!--<input type="submit" id="recalculate">-->
 
 		    </div>
