@@ -1,10 +1,9 @@
-
-import '../packages/unittest/unittest.dart'; 
-import '../lib/human_number_recognizer.dart';
+import 'package:unittest/unittest.dart';
+import 'package:life-time-value/human_number_recognizer.dart';
 
 main() {
   Function rec = HumanNumber.recognizeString;
-  
+
   test('integers', () {
     num x = rec("8");
     expect(x, equals(8));
@@ -78,8 +77,8 @@ main() {
     x = rec("1 311 510,6");
     expect(x, closeTo(1311510.6, 0.0001));
     x = rec("-1 311 510,6");
-    expect(x, closeTo(-1311510.6, 0.0001)); 
-  }); 
+    expect(x, closeTo(-1311510.6, 0.0001));
+  });
   test('thousands dot, decimal comma', () {
     num x;
     x = rec("11.510,6");
@@ -93,8 +92,8 @@ main() {
     x = rec("1.311.510,6");
     expect(x, closeTo(1311510.6, 0.0001));
     x = rec("-1.311.510,6");
-    expect(x, closeTo(-1311510.6, 0.0001)); 
-  }); 
+    expect(x, closeTo(-1311510.6, 0.0001));
+  });
   test('thousand-looking numbers', () {
     num x;
     x = rec("11.500");
@@ -109,7 +108,7 @@ main() {
     expect(x, closeTo(1.234, 0.0001));
     x = rec("1,234");
     expect(x, closeTo(1.234, 0.0001));
-  }); 
+  });
   test('malformed', () {
     num x = rec("not a number");
     expect(x, isNull);

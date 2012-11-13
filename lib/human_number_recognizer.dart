@@ -1,4 +1,3 @@
-
 library human_number_recognizer;
 
 import "dart:math";
