@@ -27,7 +27,7 @@ class HumanNumber {
   static RegExp commaOrDot = const RegExp(@"[\.,]");
   
   static num recognizeString(String s) {
-       
+    
     if (!numberCharsString.hasMatch(s)) {
       if (numberCharsStringWithEndingDot.hasMatch(s)) {
         s = numberCharsStringWithEndingDot.firstMatch(s).group(1);
