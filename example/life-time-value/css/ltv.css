@@ -156,30 +156,31 @@ div#inputs-tabs {
   position: relative;
   margin-top: 1em;
   height: 2.1em;
-  color: #3369E8;
-  text-align: right;
-  letter-spacing: 0.1em;
-  font-size: 80%;
   border-bottom: 1px solid #ccc;
 }
 
 div#inputs-tabs a {
+  color: #666;
   float: right;
-  height: 1.5em;
+  height: 1.45em;
   margin-left: 1em;
   cursor: pointer;
   background: #eee;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#eee));
   padding: 0.6em 1em 0.0em 1em;
   overflow: hidden;
-  border-radius: 0.5em 0.5em 0 0;
-  font-weight: bold;
+  border-radius: 0.2em 0.2em 0 0;
   border: 1px solid #ccc;
+}
+
+div#inputs-tabs a:hover, div#inputs-tabs a.selected:hover {
+  color: #3369E8;
 }
 
 div#inputs-tabs a.selected {
   border-bottom: 1px solid white;
   background: white;
+  color: black;
 }
 
 div#inputs-fields {
