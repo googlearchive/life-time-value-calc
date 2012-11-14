@@ -277,9 +277,12 @@ div.additional-notes {
   left: 2em;
   width: 20em;
   text-align: left;
-  font-size: 85%;
+  font-size: 0.9rem;
   padding: 0.5em;
   background: #f9f9f9;
+  color: #333;
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 div.question-mark:hover div.additional-notes {
