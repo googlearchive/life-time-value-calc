@@ -103,6 +103,16 @@ div#loading-div p img {
   margin-right: 0.2em;
 }
 
+div#loading-div p.ie-notice {
+  font-size: 100%;
+  line-height: 1.3em;
+  padding: 0 2em;
+}
+
+div#loading-div p.ie-notice strong {
+  color: red;
+}
+
 p, td {
   color: #333;
 }
@@ -549,7 +559,7 @@ div#methodology h2 {
 div#methodology h3 {
   margin-top: 1em;
   border-top: none;
-  color: 3369E8;
+  color: #3369E8;
   padding: 0.8em 0;
   text-transform: uppercase;
   letter-spacing: 0.2em;
