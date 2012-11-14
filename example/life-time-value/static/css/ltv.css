@@ -1,6 +1,8 @@
-/* @override http://127.0.0.1:3030/Users/filiph/dev/lifetime-value/example/life-time-value/css/ltv.css */
-
-/* @override http://127.0.0.1:3030/Users/filiph/dart/ltv/ltv.css */
+/* @override 
+	http://127.0.0.1:3030/Users/filiph/dev/lifetime-value/example/life-time-value/css/ltv.css
+	http://127.0.0.1:3030/Users/filiph/dart/ltv/ltv.css
+	http://127.0.0.1:3030/Users/filiph/dev/lifetime-value/example/life-time-value/static/css/ltv.css
+*/
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -611,7 +613,7 @@ div#footer p {
   font-size: 70%;
   margin: 0 5%;
   text-align: right;
-  width: 60%;
+  width: 100%;
   float: right;
   color: #666;
   line-height: 1.5em;

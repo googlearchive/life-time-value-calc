@@ -300,12 +300,21 @@
                 <li><strong>Online-to-Store factor</strong>, represents the coefficient by which one should multiply his online revenue to be able to incorporate also the part of offline sales which were influenced by online and thus be able to calculate the full ROI of your digital marketing activities. O2S factor = 1 means you have no offline sales.</li>
               </ul>
 
+              <h3>Methodology behind the Online-to-Store factor</h3>
+              <p>It is possible to calculate the Online-to-Store (O2S) factor by using the following equation:</p>
+              <img src="imgs/o2s-formula.png" alt="Online-to-Store formula" />
+              <p>This data can be found online at <a href="http://consumerbarometer.eu/">Consumer Barometer website</a>. Please note that due to aggregation of data in Consumer Barometer within the product categories, resulting O2S factor should be taken as an estimate (use directionally) in the particular industry.</p>
+              <p>The Consumer Barometer is a global effort by IAB Europe in partnership with TNS Infratest and Google to quantify the role of online in the consumer journey from research to purchase. To better understand this journey, the Consumer Barometer provides insight into past purchase behaviors and, as well as a perspective on how consumers interact with the internet as a source of information for informing purchase decisions.</p>
+              <p>Consumer Barometer offers the insight into consumers` research and purchase behavior across 39 countries and 35 product categories. Regarding the population surveyed, target population was the (adult) online population (internet users) in each country. Samples in each country surveyed were aimed to be representative of the target population, sample size was set at a minimum of n=2,500 in each country surveyed. Purchase data is based on the most recent purchase for a particular product/service within the last 12 months at the moment of surveying. Therefore, data at the product/service level pertains to only those respondents who purchased that particular product/service within the last 12 months with the focus on their most recent purchase of that particular product/service.</p>
+              <p>Even more information about the Consumer Barometer, the survey itself, questionnaire and methodology is available <a href="http://www.consumerbarometer.eu/#?app=about&aboutId=1">here</a>.</p>
+
+
               <h3>Model</h3>
               <img src="imgs/ltv-formula.png" alt="LTV formula" />
               <p>where "<strong>First Purchase * O2S factor</strong>" represents yearly gross contribution per customer, "<strong>r</strong>" is the yearly retention rate based on assumption that retention rate grows hand in hand with the length of customer lifetime - model uses proxy that that one`s retention rate equals (# of periods of lifetime - 1) / # of periods of lifetime, "<strong>i</strong>" is the yearly discount rate.</p>
               <h4>Example</h4>
               <p>Let's consider the model example - First Purchase of $100, Customer Lifetime of 3 years (thus retention rate of (3-1)/3 = 67%), referral rate of 10% (meaning that for every 10th customer there is 1 more from the recommendation), Gross profit margin of 20% and discount rate of 10% p.a. Chart that would visualize gross contribution of the customer in this example would be following:</p>
-              <img src="imgs/ltv-graph.png" alt="Life time value example graph" style="border: 0.1em solid #ccc; padding:1em;width:90%;border-radius:0.5em" />
+              <img src="imgs/ltv-graph.png" alt="Life time value example graph" style="border: 0.1em solid #ccc; padding:1em;width:90%;border-radius:0.3em;background:white" />
 
               <h3>Misuses and downsides</h3>
               <h4>NPV vs. Nominal predictions</h4>
@@ -319,11 +328,13 @@
 
               <h3>External links</h3>
               <ol>
-                <li><a href="https://www.custora.com/home/customer_lifetime_value">custora.com/home/customer_lifetime_value</a></li>
-                <li><a href="http://www.mineful.com/customer-retention-roi-calculator.html">Free customer lifetime value calculator</a></li>
-                <li><a href="http://www.kaushik.net/avinash/analytics-tip-calculate-ltv-customer-lifetime-value/">kaushik.net/avinash/analytics-tip-calculate-ltv-customer-lifetime-value/</a></li>
-                <li><a href="http://ariegoldshlager.posterous.com/recommend-reading-customer-lifetime-value-pot">ariegoldshlager.posterous.com/recommend-reading-customer-lifetime-value-pot</a></li>
-                <li><a href="http://www.quora.com/Turki-Fahad/Great-Stuff/How-do-you-calculate-Customer-Lifetime-Value">quora: How-do-you-calculate-Customer-Lifetime-Value</a></li>
+                <li><a href="http://www.dbmarketing.com/articles/Art251a.htm">Arthur Middleton Hughes: How to Compute Your Customer Lifetime Value</a></li>
+                <li><a href="http://journals.upd.edu.ph/index.php/pmr/article/viewFile/2790/2604">Erniel B. Barrios and Joseph Ryan G. Lansangan: Forecasting Customer Lifetime Value: A Statistical Approach</a></li>
+                <li><a href="https://www.custora.com/home/customer_lifetime_value">Custora: Customer Lifetime Value</a></li>
+                <li><a href="http://www.mineful.com/customer-retention-roi-calculator.html">Customer Retention ROI Calculator</a></li>
+                <li><a href="http://www.kaushik.net/avinash/analytics-tip-calculate-ltv-customer-lifetime-value/">Avinash Kaushik: Calculate Customer Lifetime Value</a></li>
+                <li><a href="http://ariegoldshlager.posterous.com/recommend-reading-customer-lifetime-value-pot">Arie Goldshlager: Customer Lifetime Value Potpourri</a></li>
+                <li><a href="http://www.quora.com/How-do-you-calculate-Customer-Lifetime-Value">How do you calculate Customer Lifetime Value? on Quora</a></li>
               </ol>
               <p class="reserve">&nbsp;</p>
             </div>
@@ -334,6 +345,7 @@
 
       <div id="footer">
         <p>Created at Google in 2012.</p>
+        <p>Please note that future results may differ from above. Please use directionally. Many different factors should be considered when evaluating the relative success of an online campaign.</p>
         <p class="footer-authors">Text &amp; model (by Tomas Kasman, Vlado Hruda, Petr Sadilek and Peter Komornik) are <a href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons licensed</a>. <a href="https://github.com/filiph/life-time-value">Code</a> (by Filip Hracek) is open source. Online&#8209;to&#8209;store data from <a href="http://www.consumerbarometer.com/">Consumer Barometer</a>.</p>
         <div style="clear:both"></div>
       </div>
