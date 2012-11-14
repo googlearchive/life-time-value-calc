@@ -88,20 +88,20 @@ void main() {
   window.setTimeout(() => loadingDiv.remove(), 300);
 
   // roll out the methodology
-  query("a#methodology-link").on.click.add((e) {
+  var methodologyLink = query("a#methodology-link");
+  methodologyLink.on.click.add((e) {
     e.preventDefault();
     var methodology = query("div#methodology");
-    var arrow = query("span#methodology-arrow");
     if (methodology.style.height == null || methodology.style.height.startsWith("0")
         || methodology.style.height == "") {
       query("div#methodology-inside-wrapper").computedStyle
       .then((cssStyle) {
         methodology.style.height = cssStyle.height;
-        arrow.innerHTML = "&#x25B2;";
+        methodologyLink.text = "Hide methodology";
       });
     } else {
       methodology.style.height = "0";
-      arrow.innerHTML = "&#x25BC;";
+      methodologyLink.text = "Learn about the methodology";
     }
 
   });

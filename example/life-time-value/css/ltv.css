@@ -503,6 +503,7 @@ div#outputs h3 {
 ul#what-next li {
   margin-left: 2em;
   font-size: 80%;
+  line-height: 1.5em;
   list-style-type: circle;
   color: #666;
 }
@@ -514,9 +515,10 @@ input#link-for-sharing {
   background: white;
 }
 
-span#methodology-arrow {
+a#methodology-link {
   color: #3369E8;
-  font-size: 50%;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 span.no-linebreak {
