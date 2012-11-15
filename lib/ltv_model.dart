@@ -65,10 +65,10 @@ class BoundValue {
           }
           el.classes.remove("invalid");
       });
+      if (!sameValue && autoGetValue != null) {
+        _autoValueOverridden = (autoGetValue() != n);
+      }
       if (model != null && !forceNoRecalculate && !sameValue) {
-        if (autoGetValue != null) {
-          _autoValueOverridden = (autoGetValue() != n);
-        }
         model.recalculate(e);
       }
     } else {

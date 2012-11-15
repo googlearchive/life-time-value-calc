@@ -74,11 +74,13 @@ void main() {
 
   model.linkForSharing = query("input#link-for-sharing");
 
+  // setup value dependencies
+  model.start();
+
   // check if url contains values
   model.parseUrl();
 
-  // start the engine
-  model.start();
+  // recalculate for the first time
   model.recalculate(null);
   model.pushState();
 
