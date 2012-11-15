@@ -283,6 +283,7 @@ div.additional-notes {
   color: #333;
   text-transform: none;
   letter-spacing: normal;
+  z-index: 1000;
 }
 
 div.question-mark:hover div.additional-notes {
