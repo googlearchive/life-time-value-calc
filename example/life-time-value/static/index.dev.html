@@ -3,77 +3,77 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life-Time Value Calculator</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>-->
     <link rel="stylesheet" href="css/ltv.css">
   </head>
   <body>
-  	<div id="matrioska">
+    <div id="matrioska">
       <div id="loading-div">
-        <p><img src="imgs/loader.gif">Loading...</p>
-        <!--[if lte IE 9]>
+        <p><!--[if !IE]> --><img alt="loading" src="imgs/loader.gif">Loading...</p><!-- <![endif]-->
+        <!--[if IE]>
         <p class="ie-notice"><strong>Warning:</strong> This calculator only works in modern browsers. You might want to use any recent version of <a href="http://getfirefox.com">Firefox</a>, <a href="http://www.apple.com/safari/">Safari</a>, or <a href="http://www.google.com/chrome">Chrome</a>. As for Internet Explorer, only <a href="http://windows.microsoft.com/en-US/internet-explorer/download-ie">the latest version</a> (10) supports the needed technologies. Detailed info <a href="http://caniuse.com/">here</a>.</p>
         <![endif]-->
       </div>
 
-	    <div id="main">
-		    <div id="inputs">
+      <div id="main">
+        <div id="inputs">
           <div id="inputs-tabs">
             <a id="basic-tab" class="selected">Basic</a>
             <a id="advanced-tab">Advanced</a>
           </div>
-		      <div id="inputs-fields">
+          <div id="inputs-fields">
             <table id="productConversions">
               <tr><th colspan="2">Product Conversion</th></tr>
               <tr>
-                <td>AdWords <strong>CPC</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">Your <strong>Cost-per-Click average</strong> in last 30 days - The amount that you actually pay each time someone clicks your ad. You can find it in AdWords.</div></div></td>
+                <td>AdWords <strong>CPC</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">Your <strong>Cost-per-Click average</strong> in last 30 days - The amount that you actually pay each time someone clicks your ad. You can find it in AdWords.</div></div></td>
                 <td><span class="currency-placeholder with-input">$</span> <input id="cpc" type="text" value="2.1"></td>
               </tr>
               <tr>
-                <td><strong>Conversion rate</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">Your <strong>conversion rate average in %</strong> in last 30 days - How often a click on your ad resulted in a conversion, a meaningful action like a sale, lead, or sign-up. You can find it in AdWords.</div></div></td>
+                <td><strong>Conversion rate</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">Your <strong>conversion rate average in %</strong> in last 30 days - How often a click on your ad resulted in a conversion, a meaningful action like a sale, lead, or sign-up. You can find it in AdWords.</div></div></td>
                 <td><input id="conversionRate" type="text" value="2.5%"></td>
               </tr>
             </table>
             <table id="productProfitability">
               <tr><th colspan="2">Purchase Profitability</th></tr>
               <tr>
-                <td><strong>Customer lifetime</strong> (in years) <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes"><strong>Periods</strong> – the units of time into which a customer relationship is divided for analysis. A year is the most commonly used period - <strong>Customer Life-Time value</strong> is a multi-period calculation, usually stretching 3–7 years into the future. In practice, analysis beyond this point is viewed as too speculative to be reliable.</div></div></td><td><input id="customerLifetime" type="text" value="3"></td>
+                <td><strong>Customer lifetime</strong> (in years) <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes"><strong>For how many years on average are customers willing to spend money with the company?</strong> A year is the most commonly used period. Customer Life-Time is a multi-period calculation, usually stretching 3-7 years into the future. In practice, analysis beyond this point is viewed too speculative to be reliable.</div></div></td><td><input id="customerLifetime" type="text" value="3"></td>
               </tr>
               <tr>
-                <td><strong>First purchase</strong> value <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>first time purchase value</strong> of your customer - The average amount of money your customer spends for the first time.</div></div></td>
+                <td><strong>First purchase</strong> value <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">The <strong>first time purchase value</strong> of your customer - The average amount of money your customer spends for the first time.</div></div></td>
                 <td><span class="currency-placeholder with-input">$</span> <input id="firstPurchase" type="text" value="100"></td>
               </tr>
               <tr style="display:none">
                 <td>Re-purchase</td><td><input id="repurchase" type="text" value=""></td>
               </tr>
               <tr class="advanced">
-                <td><strong>Purchases per year</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">TBD</div></div></td>
+                <td><strong>Purchases per year</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes"><strong>How many times on average do customers purchase the product or service during the year?</strong> Please note that the model expects the same purchase value for all purchases in a given year.</div></div></td>
                 <td><input id="purchasesPerYear" type="text" value="1"></td>
               </tr>
               <tr class="advanced">
                 <td colspan="2">
                   <table id="profit-development">
                     <tr>
-                      <th>Year</th>
+                      <th>Year <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">In Advanced mode, you can set up the values differently for <strong>the first year, the second year, and all the following years</strong> of your customers' lifetime.</div></div></th>
                       <th>1<sup>st</sup></th>
                       <th>2<sup>nd</sup></th>
                       <th>3<sup>rd</sup>+</th>
                     </tr>
                     <tr>
-                      <td><strong>Purchase value</strong> (<span class="currency-placeholder">$</span>) <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">TBD</div></div></td>
+                      <td><strong>Purchase value</strong> (<span class="currency-placeholder">$</span>) <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">You can set up the purchase values of your customer differently for the fist year, the second year, and all the following years of your customers' lifetime. Please note that value of the first purchase (above) equals purchase value in the 1st year.</div></div></td>
                       <td><input id="firstPurchase-table" type="text" value="100"></td>
                       <td><input id="year-2-purchase" type="text" value="100"></td>
                       <td><input id="year-3-purchase" type="text" value="100"></td>
                     </tr>
                     <tr>
-                      <td><strong>Purchases per year</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">TBD</div></div></td>
+                      <td><strong>Purchases per year</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">You can set up how many times on average customers purchase the product or service during the year differently for the fist year, the second year, and all the following years of your customers' lifetime.</div></div></td>
                       <td><input id="purchasesPerYear-table" type="text" value="1"></td>
                       <td><input id="year-2-purchasesPerYear" type="text" value="1"></td>
                       <td><input id="year-3-purchasesPerYear" type="text" value="1"></td>
                     </tr>
                     <tr>
-                      <td><strong>Retention rate</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">TBD</div></div></td>
+                      <td><strong>Retention rate</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">In advanced mode, you can set up directly the percentage of customers who keep their relationship with a company in a given year - for second year and all the following years. 67 % in the second year means that from 100 customers in the first year, there will be 67 customers that will be loyal to your company.</div></div></td>
                       <td><input type="text" disabled value="&mdash;"></td>
                       <td><input id="year-2-retentionRate" type="text" value="67%"></td>
                       <td><input id="year-3-retentionRate" type="text" value="44%"></td>
@@ -82,14 +82,11 @@
                 </td>
               </tr>
               <tr>
-                <td><strong>Referral rate</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>% rate in which customers continue to recommend or talk about their good experiences</strong> with their friends - If your referral rate is 10% it means that for every 10 customers there is 1 more customer from the recommendations.</div></div></td><td><input id="referralRate" type="text" value="10%"></td>
+                <td><strong>Referral rate</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">The <strong>% rate in which customers continue to recommend or talk about their good experiences</strong> with their friends - If your referral rate is 10% it means that for every 10 customers there is 1 more customer from the recommendations.</div></div></td><td><input id="referralRate" type="text" value="10%"></td>
               </tr>
               <tr>
-                <td><strong>Gross profit margin</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>% proportion of money left over from revenues after accounting for cost of goods sold</strong>. Gross profit margin serves as the source for paying additional expenses and future savings.</div></div></td><td><input id="grossMargin" type="text" value="15%"></td>
+                <td><strong>Gross profit margin</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">The <strong>% proportion of money left over from revenues after accounting for cost of goods sold</strong>. Gross profit margin serves as the source for paying additional expenses and future savings.</div></div></td><td><input id="grossMargin" type="text" value="15%"></td>
               </tr>
-            </table>
-            <table id="">
-              
             </table>
             <table id="ropoEffect">
               <tr><th colspan="2">Online-to-Store (O2S)</th></tr>
@@ -112,7 +109,7 @@
                       <option>Retail > Retail (avg)</option>
                       <option>Retail > Books</option>
                       <option>Retail > CDs/DVDs</option>
-                      <option>Retail > Clothing & accessories</option>
+                      <option>Retail > Clothing &amp; accessories</option>
                       <option>Retail > Cosmetics/beauty products</option>
                       <option selected>Retail > Domestic appliances</option>
                       <option>Retail > Footwear</option>
@@ -188,25 +185,25 @@
                 <td>Suggested Online-to-Store (O2S) factor</td><td><input id="suggestedRopoCoefficient" type="text" value="2.71"></td>
               </tr>
               <tr>
-                <td><strong>Online-to-Store (O2S) factor</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">O2S factor represents the <strong>coefficient by which you should multiply your online revenue to be able to incorporate also the part of offline sales which were influenced by online</strong> and thus be able to calculate the whole ROI of your digital marketing activities. O2S factor = 1 means you have no offline sales.</div></div></td><td><input id="ropoCoefficient" type="text" value="2.71"></td>
+                <td><strong>Online-to-Store (O2S) factor</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">O2S factor represents the <strong>coefficient by which you should multiply your online revenue to be able to incorporate also the part of offline sales which were influenced by online</strong> and thus be able to calculate the whole ROI of your digital marketing activities. O2S factor = 1 means you have no offline sales.</div></div></td><td><input id="ropoCoefficient" type="text" value="2.71"></td>
               </tr>
             </table>
              <table id="costOfCapitalTable">
                <tr><th colspan="2">Discount rate</th></tr>
               <tr>
-                <td><strong>Discount rate</strong> <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes">The <strong>% rate of return that capital could be expected to earn in an alternative investment of equivalent risk</strong> (also known as Cost of capital). It helps you in discounting the future revenues to the present value.</div></div></td><td><input id="costOfCapital" type="text" value="10%"></td>
+                <td><strong>Discount rate</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">The <strong>interest rate used to discount future revenues to the present value</strong>. The discount rate takes into account the time value of money (the idea that money available now is worth more than the same amount of money available in the future because it could be earning interest).</div></div></td><td><input id="costOfCapital" type="text" value="10%"></td>
               </tr>
             </table>
-		      </div>
-		      <!--<input type="submit" id="recalculate">-->
+          </div>
+          <!--<input type="submit" id="recalculate">-->
 
-		    </div>
-		    <div id="outputs">
-          <h1><a href=".">Life-Time Value Calculation DEVELOPMENT</a></h1>
+        </div>
+        <div id="outputs">
+          <h1><a href=".">Life-Time Value Calculation</a></h1>
           <div id="share-buttons"></div>
           <p id="currency-disclaimer">This calculation is currency independent, but feel free to to change the <input id="currency-set" type="text" value="$"> symbol here.</p>
 
-		    	<p>Based on the life-time value of acquisition, your break-even CPC is&nbsp;<span class="currency-placeholder">$</span><span id="breakEvenCPC">2.87</span>.</p>
+          <p>Based on the life-time value of acquisition, your break-even CPC is&nbsp;<span class="currency-placeholder">$</span><span id="breakEvenCPC">2.87</span>.</p>
           <table id="graph">
             <tr class="r1">
               <td class="blank c1">&nbsp;</td>
@@ -247,7 +244,7 @@
             </tr>
             <tr class="r5">
               <td class="blank c1">&nbsp;</td>
-              <td class="legend c2">Customer Life-Time Value <div class="question-mark"><img src="imgs/question-mark.png"/><div class="additional-notes"><strong>Customer Life-Time Value</strong> represents present value of your customer considering your customer lifetime, referral rate as well as O2S effect in your industry.</div></div></td>
+              <td class="legend c2">Customer Life-Time Value <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes"><strong>Customer Life-Time Value</strong> represents present value of your customer considering your customer lifetime, referral rate as well as O2S effect in your industry.</div></div></td>
               <td class="blank c3">&nbsp;</td>
               <td class="legend c4">CPA</td>
               <td class="blank c5">&nbsp;</td>
@@ -293,19 +290,28 @@
 
               <h3>Inputs</h3>
               <ul>
-                <li><strong>Churn rate</strong>, the percentage of customers who end their relationship with a company in a given period. One minus the churn rate is the <strong>retention rate</strong>. Most models can be written using either churn rate or retention rate. This model uses only one retention rate under the assumption that the retention rate is constant across the life of the customer relationship. This model is based on assumption that retention rate grows hand in hand with the length of customer lifetime - model uses proxy that that one`s retention rate equals (# of periods of lifetime - 1) / # of periods of lifetime.</li>
-                <li><strong>Discount rate</strong>, the <a href="http://en.wikipedia.org/wiki/Cost_of_capital">cost of capital</a> used to discount future revenue from a customer. Discounting is an advanced topic that is frequently ignored in customer lifetime value calculations. Recommendation from valuation best practice would be to keep the discount rate at no more than ~10%.</li>
+                <li><strong>Churn rate</strong>, the percentage of customers who end their relationship with a company in a given period. One minus the churn rate is the <strong>retention rate</strong>. Most models can be written using either churn rate or retention rate. This model uses only one retention rate under the assumption that the retention rate is constant across the life of the customer relationship. This model is based on assumption that retention rate grows hand in hand with the length of customer lifetime - model uses proxy that that one's retention rate equals (# of periods of lifetime - 1) / # of periods of lifetime.</li>
+                <li><strong>Discount rate</strong>, the <a href="http://en.wikipedia.org/wiki/Cost_of_capital">cost of capital</a> used to discount future revenue from a customer. Discounting is an advanced topic that is frequently ignored in customer lifetime value calculations. Recommendation from valuation best practice would be to keep the discount rate at no more than ~10%. <br/> Let's say you expect $1,000 dollars in one year's time. To determine the present value of this $1,000 (what it is worth to you today) you would need to discount it by a particular rate of interest. Assuming a discount rate of 10%, the $1,000 in a year's time would be the equivalent of $909.09 to you today (1000/[1.00 + 0.10]).</li>
                 <li><strong>Gross profit margin</strong>, % proportion of money left over from revenues after accounting for the cost of goods sold. Gross profit margin serves as the source for paying additional expenses and future savings. This CLV model is based for simplicity on gross profit margin, however if one can estimate the full net profit expected from the customer, it can via setting the % accordingly.</li>
                 <li><strong>Period</strong>, the unit of time into which a customer relationship is divided for analysis. A year is the most commonly used period. Customer lifetime value is a multi-period calculation, usually stretching 3–7 years into the future. In practice, analysis beyond this point is viewed as too speculative to be reliable. The number of periods used in the calculation is sometimes referred to as the model <strong>horizon</strong>.</li>
                 <li><strong>Online-to-Store factor</strong>, represents the coefficient by which one should multiply his online revenue to be able to incorporate also the part of offline sales which were influenced by online and thus be able to calculate the full ROI of your digital marketing activities. O2S factor = 1 means you have no offline sales.</li>
               </ul>
 
+              <h3>Methodology behind the Online-to-Store factor</h3>
+              <p>It is possible to calculate the Online-to-Store (O2S) factor by using the following equation:</p>
+              <img src="imgs/o2s-formula.png" alt="Online-to-Store formula" />
+              <p>This data can be found online at <a href="http://consumerbarometer.eu/">Consumer Barometer website</a>. Please note that due to aggregation of data in Consumer Barometer within the product categories, resulting O2S factor should be taken as an estimate (use directionally) in the particular industry.</p>
+              <p>The Consumer Barometer is a global effort by IAB Europe in partnership with TNS Infratest and Google to quantify the role of online in the consumer journey from research to purchase. To better understand this journey, the Consumer Barometer provides insight into past purchase behaviors and, as well as a perspective on how consumers interact with the internet as a source of information for informing purchase decisions.</p>
+              <p>Consumer Barometer offers the insight into consumers' research and purchase behavior across 39 countries and 35 product categories. Regarding the population surveyed, target population was the (adult) online population (internet users) in each country. Samples in each country surveyed were aimed to be representative of the target population, sample size was set at a minimum of n=2,500 in each country surveyed. Purchase data is based on the most recent purchase for a particular product/service within the last 12 months at the moment of surveying. Therefore, data at the product/service level pertains to only those respondents who purchased that particular product/service within the last 12 months with the focus on their most recent purchase of that particular product/service.</p>
+              <p>Even more information about the Consumer Barometer, the survey itself, questionnaire and methodology is available <a href="http://www.consumerbarometer.eu/#?app=about&amp;aboutId=1">here</a>.</p>
+
+
               <h3>Model</h3>
-              <img src="imgs/ltv-formula.png" alt="LTV formula" />
-              <p>where "<strong>First Purchase * O2S factor</strong>" represents yearly gross contribution per customer, "<strong>r</strong>" is the yearly retention rate based on assumption that retention rate grows hand in hand with the length of customer lifetime - model uses proxy that that one`s retention rate equals (# of periods of lifetime - 1) / # of periods of lifetime, "<strong>i</strong>" is the yearly discount rate.</p>
-              <h4>Example</h4>
-              <p>Let's consider the model example - First Purchase of $100, Customer Lifetime of 3 years (thus retention rate of (3-1)/3 = 67%), referral rate of 10% (meaning that for every 10th customer there is 1 more from the recommendation), Gross profit margin of 20% and discount rate of 10% p.a. Chart that would visualize gross contribution of the customer in this example would be following:</p>
-              <img src="imgs/ltv-graph.png" alt="Life time value example graph" style="border: 0.1em solid #ccc; padding:1em;width:90%;border-radius:0.5em" />
+              <img src="imgs/ltv-formula.png" alt="LTV = left [sum from {y=1} to {4} {{Purchases *O2S factor* {r} rsub {y}} over {{(1+i)} ^ {y}} + {Purchases *O2S factor* {r} rsub {5}} over {i-( {r} rsub {5} -1)}} * {{1} over {{(1+i)} ^ {5}}} right ] *  {{1} over {(1-Referral rate)}} * Profit Margin" />
+              <p>Where <strong>Purchases</strong> = Purchase value * # of purchases in particular year, <strong>Purchases * O2S factor</strong> represents yearly gross contribution per customer, <strong>r</strong> is the yearly retention rate based on assumption that retention rate grows hand in hand with the length of customer lifetime - model uses proxy that that one's retention rate equals <em>(# of periods of lifetime - 1) / # of periods of lifetime</em>, <strong>i</strong> is the yearly discount rate.</p>
+              <h3>Example</h3>
+              <p>Let's consider the model example - First Purchase of $100, Customer Lifetime of 3 years (thus retention rate of (3-1)/3 = 67%), referral rate of 10% (meaning that for every 10th customer there is 1 more from the recommendation), Gross profit margin of 15%, O2S factor of 2.71 (CZ, Retail &gt; Domestic appliances) and discount rate of 10% p.a.  Chart that would visualize gross contribution of the customer in this example would be following:</p>
+              <img src="imgs/ltv-graph.png" alt="Life time value example graph" style="border: 0.1em solid #ccc; padding:1em;width:90%;border-radius:0.3em;background:white" />
 
               <h3>Misuses and downsides</h3>
               <h4>NPV vs. Nominal predictions</h4>
@@ -319,29 +325,34 @@
 
               <h3>External links</h3>
               <ol>
-                <li><a href="https://www.custora.com/home/customer_lifetime_value">custora.com/home/customer_lifetime_value</a></li>
-                <li><a href="http://www.mineful.com/customer-retention-roi-calculator.html">Free customer lifetime value calculator</a></li>
-                <li><a href="http://www.kaushik.net/avinash/analytics-tip-calculate-ltv-customer-lifetime-value/">kaushik.net/avinash/analytics-tip-calculate-ltv-customer-lifetime-value/</a></li>
-                <li><a href="http://ariegoldshlager.posterous.com/recommend-reading-customer-lifetime-value-pot">ariegoldshlager.posterous.com/recommend-reading-customer-lifetime-value-pot</a></li>
-                <li><a href="http://www.quora.com/Turki-Fahad/Great-Stuff/How-do-you-calculate-Customer-Lifetime-Value">quora: How-do-you-calculate-Customer-Lifetime-Value</a></li>
+                <li><a href="http://www.dbmarketing.com/articles/Art251a.htm">Arthur Middleton Hughes: How to Compute Your Customer Lifetime Value</a></li>
+                <li><a href="http://journals.upd.edu.ph/index.php/pmr/article/viewFile/2790/2604">Erniel B. Barrios and Joseph Ryan G. Lansangan: Forecasting Customer Lifetime Value: A Statistical Approach</a></li>
+                <li><a href="https://www.custora.com/home/customer_lifetime_value">Custora: Customer Lifetime Value</a></li>
+                <li><a href="http://www.mineful.com/customer-retention-roi-calculator.html">Customer Retention ROI Calculator</a></li>
+                <li><a href="http://www.kaushik.net/avinash/analytics-tip-calculate-ltv-customer-lifetime-value/">Avinash Kaushik: Calculate Customer Lifetime Value</a></li>
+                <li><a href="http://ariegoldshlager.posterous.com/recommend-reading-customer-lifetime-value-pot">Arie Goldshlager: Customer Lifetime Value Potpourri</a></li>
+                <li><a href="http://www.quora.com/How-do-you-calculate-Customer-Lifetime-Value">How do you calculate Customer Lifetime Value? on Quora</a></li>
               </ol>
               <p class="reserve">&nbsp;</p>
             </div>
           </div>
-		    </div>
-		    <div id="belowInputsAndOutputs"></div>
+        </div>
+        <div id="belowInputsAndOutputs"></div>
       </div>
 
       <div id="footer">
         <p>Created at Google in 2012.</p>
+        <p>Please note that future results may differ from above. Please use directionally. Many different factors should be considered when evaluating the relative success of an online campaign.</p>
         <p class="footer-authors">Text &amp; model (by Tomas Kasman, Vlado Hruda, Petr Sadilek and Peter Komornik) are <a href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons licensed</a>. <a href="https://github.com/filiph/life-time-value">Code</a> (by Filip Hracek) is open source. Online&#8209;to&#8209;store data from <a href="http://www.consumerbarometer.com/">Consumer Barometer</a>.</p>
         <div style="clear:both"></div>
       </div>
 
-	</div>
+  </div>
 
-  <!--<script src="ltv_model.dart.js"></script>-->
   <script type="application/dart" src="ltv_site.dart"></script>
-  <script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+  <!--<script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>-->
+
+
+
   </body>
 </html>
