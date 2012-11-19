@@ -105,14 +105,14 @@ div#loading-div p img {
   margin-right: 0.2em;
 }
 
-div#loading-div p.ie-notice {
-  font-size: 100%;
+div#loading-div p.unsupported-notice {
+  font-size: 80%;
   line-height: 1.3em;
   padding: 0 2em;
 }
 
-div#loading-div p.ie-notice strong {
-  color: red;
+div#loading-div p.unsupported-notice strong {
+  color: #3369E8;
 }
 
 p, td {
