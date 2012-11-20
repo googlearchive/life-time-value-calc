@@ -1,4 +1,5 @@
 *.dart.js
 *.dart.js.map
+*.dart.js.deps
 .project
 .DS_Store
