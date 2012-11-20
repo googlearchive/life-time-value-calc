@@ -66,7 +66,9 @@ class BoundValue {
           el.classes.remove("invalid");
       });
       if (!sameValue && autoGetValue != null) {
-        _autoValueOverridden = (autoGetValue() != n);
+        String autoValue = _getStringRepresentation(autoGetValue());
+        String currValue = elValue;
+        _autoValueOverridden = autoValue != currValue;
       }
       if (model != null && !forceNoRecalculate && !sameValue) {
         model.recalculate(e);
@@ -130,18 +132,27 @@ class BoundValue {
     }
   }
 
-  void _writeValueTo(Element el) {
+  String _getStringRepresentation([num number]) {
+    if (number == null) {
+      number = _value;
+    }
     String s;
-    if (_value.isInfinite && !_value.isNegative)
+    if (number.isInfinite && !number.isNegative)
       s = "∞";
-    else if (_value.isInfinite && _value.isNegative)
+    else if (number.isInfinite && number.isNegative)
       s = "-∞";
-    else if (_value.isNaN)
+    else if (number.isNaN)
       s = "not calculable";
     else if (isPercentage)
-      s = "${(_value * 100.0).toStringAsFixed(precision)}%";
+      s = "${(number * 100.0).toStringAsFixed(precision)}%";
     else
-      s = _value.toStringAsFixed(precision);
+      s = number.toStringAsFixed(precision);
+
+    return s;
+  }
+
+  void _writeValueTo(Element el) {
+    String s = _getStringRepresentation();
 
     if (el is InputElement) {
       (el as InputElement).value = s;
@@ -236,8 +247,12 @@ class LtvModel {
     year3PurchaseValue.autoGetValue = () => year2PurchaseValue.value;
     year2PurchasesPerYear.autoGetValue = () => purchasesPerYear.value;
     year3PurchasesPerYear.autoGetValue = () => purchasesPerYear.value;
-    year2RetentionRate.autoGetValue = () => (customerLifetime.value - 1)/customerLifetime.value;
-    year3RetentionRate.autoGetValue = () => year2RetentionRate.value * (customerLifetime.value - 1)/customerLifetime.value;
+    year2RetentionRate.autoGetValue =
+        () => (customerLifetime.value - 1)/customerLifetime.value;
+    year3RetentionRate.autoGetValue = () {
+      return (customerLifetime.value - 1)/customerLifetime.value
+          * (customerLifetime.value - 1)/customerLifetime.value;
+    };
 
     window.on.popState.add((e) {
       parseUrl();
