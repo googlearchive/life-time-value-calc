@@ -5,3 +5,4 @@ author: Filip Hracek <filiph@google.com>
 dependencies:
   unittest:
     sdk: unittest
+  browser: any
