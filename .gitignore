@@ -3,3 +3,8 @@
 *.dart.js.deps
 .project
 .DS_Store
+packages
+*/packages
+*/packages/*
+*/*/packages
+*/*/packages/*
