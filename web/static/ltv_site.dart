@@ -1,6 +1,8 @@
 import "package:life-time-value/ltv_model.dart";
 import "package:life-time-value/src/ropo_values.dart";
+
 import "dart:html";
+import "dart:async";
 
 
 void main() {
@@ -42,7 +44,7 @@ void main() {
   model.destinationCountryEl = query("#destinationCountry");
 
   [model.ropoCategoryEl, model.destinationCountryEl].forEach((SelectElement el) {
-    el.on.change.add((e) {
+    el.onChange.listen((e) {
       // get ROPO coefficients from table
       String key = "${model.destinationCountryEl.value} > ${model.ropoCategoryEl.value}";
       model.ropoCoefficient.value = RopoValues.ropoCoefficients[key];
@@ -87,20 +89,18 @@ void main() {
   // hide loading
   var loadingDiv = query("div#loading-div");
   loadingDiv.classes.add("hide3d");
-  window.setTimeout(() => loadingDiv.remove(), 300);
+  loadingDiv.onTransitionEnd.first.then((_) => loadingDiv.remove());
 
   // roll out the methodology
   var methodologyLink = query("a#methodology-link");
-  methodologyLink.on.click.add((e) {
+  methodologyLink.onClick.listen((e) {
     e.preventDefault();
     var methodology = query("div#methodology");
     if (methodology.style.height == null || methodology.style.height.startsWith("0")
         || methodology.style.height == "") {
-      query("div#methodology-inside-wrapper").computedStyle
-      .then((cssStyle) {
-        methodology.style.height = cssStyle.height;
-        methodologyLink.text = "Hide methodology";
-      });
+      var cssStyle = query("div#methodology-inside-wrapper").getComputedStyle();
+      methodology.style.height = cssStyle.height;
+      methodologyLink.text = "Hide methodology";
     } else {
       methodology.style.height = "0";
       methodologyLink.text = "Learn about the methodology";
@@ -111,7 +111,7 @@ void main() {
   // basic/advanced tabs
   var basicTab = query("a#basic-tab");
   var advancedTab = query("a#advanced-tab");
-  basicTab.on.click.add((e) {
+  basicTab.onClick.listen((e) {
     basicTab.classes.add("selected");
     advancedTab.classes.remove("selected");
     for (var el in queryAll("div#inputs tr.advanced")) {
@@ -119,7 +119,7 @@ void main() {
     }
   });
 
-  advancedTab.on.click.add((e) {
+  advancedTab.onClick.listen((e) {
     basicTab.classes.remove("selected");
     advancedTab.classes.add("selected");
     for (var el in queryAll("div#inputs tr.advanced")) {

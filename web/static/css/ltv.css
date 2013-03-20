@@ -1,3 +1,5 @@
+/* @override http://127.0.0.1:3030/Users/filiph/dev/lifetime-value/web/static/css/ltv.css */
+
 /* @override 
 	http://127.0.0.1:3030/Users/filiph/dev/lifetime-value/example/life-time-value/css/ltv.css
 	http://127.0.0.1:3030/Users/filiph/dart/ltv/ltv.css
@@ -505,15 +507,27 @@ tr.r4 {
   display: none;
 }
 
+
+
 div#outputs h3 {
-  margin-top: 4em;
-  border-top: 1px solid #ccc;
+
   color: #3369E8;
   text-align: left;
   padding: 0.8em 0;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 80%;
+}
+
+div#outputs h3.first {
+  margin-top: 4em;
+  border-top: 1px solid #ccc;
+}
+
+div#outputs p.disclaimer {
+  font-size: 80%;
+  line-height: 1.5em;
+  color: #666;
 }
 
 ul#what-next li {

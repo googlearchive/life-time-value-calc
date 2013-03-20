@@ -3,6 +3,7 @@ library ltv_model;
 import 'dart:html';
 import 'dart:uri';
 import 'dart:math';
+import 'dart:async';
 import 'human_number_recognizer.dart';
 
 final String TITLE = "Life-Time Value and Break-Even Online Calculator";
@@ -29,8 +30,8 @@ class BoundValue {
     _elements.add(document.query(query));
     _value = _readNumberFrom(_elements[0]);
 
-    _elements[0].on.input.add((e) => inputListener(e));
-    _elements[0].on.blur.add((e) {
+    _elements[0].onInput.listen((e) => inputListener(e));
+    _elements[0].onBlur.listen((e) {
       if (model != null)
         model.pushState();
     });
@@ -44,7 +45,7 @@ class BoundValue {
   void addElements(List<Element> newElements) {
     newElements.forEach((Element el) {
       _elements.add(el);
-      el.on.input.add((e) => inputListener(e));
+      el.onInput.listen((e) => inputListener(e));
       _addAutoValueBlurListenerTo(el);
       if (isPercentage)
         _addPercentageBlurListenerTo(el);
@@ -79,7 +80,7 @@ class BoundValue {
   }
 
   void _addPercentageBlurListenerTo(Element el) {
-    el.on.blur.add((Event e) {
+    el.onBlur.listen((Event e) {
       String s = _getStringFrom(el);
       if (!HumanNumber.numberCharsStringWithEndingPercentage.hasMatch(s)) {
         _setTextOrValueTo(el, "$s%");
@@ -88,7 +89,7 @@ class BoundValue {
   }
 
   void _addAutoValueBlurListenerTo(Element el) {
-    el.on.blur.add((Event e) {
+    el.onBlur.listen((Event e) {
       if (autoGetValue != null && _getStringFrom(el).trim() == "") {
         value = autoGetValue();
         if (model != null) {
@@ -169,7 +170,12 @@ class BoundValue {
 
   void blink(Element el) {
     el.classes.add("highlight");
-    window.setTimeout(() => el.classes.remove("highlight"), 500);
+    new Timer(const Duration(milliseconds: 500), 
+        () => el.classes.remove("highlight"));
+//    el.onTransitionEnd.first.then((_) {
+//      el.classes.remove("highlight");
+//    });
+//    window.setTimeout(() => el.classes.remove("highlight"), 500);
     //new Timer(500, (_) => el.classes.remove("highlight"));
   }
 
@@ -254,7 +260,7 @@ class LtvModel {
           * (customerLifetime.value - 1)/customerLifetime.value;
     };
 
-    window.on.popState.add((e) {
+    window.onPopState.listen((e) {
       parseUrl();
       recalculate(null);
     });
@@ -383,7 +389,7 @@ class LtvModel {
   void _setInputs(Map map) {
     if (map.containsKey("currency")) {
       currencyInputEl.value = map["currency"];
-      currencyInputEl.on.input.dispatch(new Event('input'));
+      currencyInputEl.dispatchEvent(new Event('input'));
     }
     if (map.containsKey("cpc"))
       cpc.elValue = map["cpc"];
@@ -419,7 +425,7 @@ class LtvModel {
     map.forEach((k, v) {
       var key = encodeUriComponent(k);
       var value = encodeUriComponent(v);
-      strBuf.add("$key=$value&");
+      strBuf.write("$key=$value&");
     });
     String url = strBuf.toString();
     url = url.substring(0, url.length - 1); // remove trailing "&"
@@ -448,12 +454,12 @@ class LtvModel {
 
   set currencyInputEl(InputElement val) {
     _currencyInputEl = val;
-    _currencyInputEl.on.input.add((e) {
+    _currencyInputEl.onInput.listen((e) {
       queryAll("span.currency-placeholder").forEach((el) {
         el.text = _currencyInputEl.value;
       });
     });
-    _currencyInputEl.on.blur.add((e) {
+    _currencyInputEl.onBlur.listen((e) {
       pushState();
     });
   }
@@ -462,7 +468,7 @@ class LtvModel {
 
   set linkForSharing(InputElement val) {
     _linkForSharing = val;
-    _linkForSharing.on.click.add((e) {
+    _linkForSharing.onClick.listen((e) {
       _linkForSharing
         ..selectionStart = 0
         ..selectionEnd = _linkForSharing.value.length;

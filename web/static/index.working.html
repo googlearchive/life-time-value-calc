@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/ltv.css">
   </head>
   <body>
-  	<div id="matrioska">
+    <div id="matrioska">
       <div id="loading-div">
         <p><img alt="loading" src="imgs/loader.gif">Loading...</p>
 
@@ -31,13 +31,13 @@
         </script>
       </div>
 
-	    <div id="main">
-		    <div id="inputs">
+      <div id="main">
+        <div id="inputs">
           <div id="inputs-tabs">
             <a id="basic-tab" class="selected">Basic</a>
             <a id="advanced-tab">Advanced</a>
           </div>
-		      <div id="inputs-fields">
+          <div id="inputs-fields">
             <table id="productConversions">
               <tr><th colspan="2">Product Conversion</th></tr>
               <tr>
@@ -208,16 +208,16 @@
                 <td><strong>Discount rate</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">The <strong>interest rate used to discount future revenues to the present value</strong>. The discount rate takes into account the time value of money (the idea that money available now is worth more than the same amount of money available in the future because it could be earning interest).</div></div></td><td><input id="costOfCapital" type="text" value="10%"></td>
               </tr>
             </table>
-		      </div>
-		      <!--<input type="submit" id="recalculate">-->
+          </div>
+          <!--<input type="submit" id="recalculate">-->
 
-		    </div>
-		    <div id="outputs">
+        </div>
+        <div id="outputs">
           <h1><a href=".">Life-Time Value Calculation</a></h1>
           <div id="share-buttons"></div>
           <p id="currency-disclaimer">This calculation is currency independent. Feel free to to change the <input id="currency-set" type="text" value="$"> symbol here.</p>
 
-		    	<p>Based on the life-time value of acquisition, your break-even CPC is&nbsp;<span class="currency-placeholder">$</span><span id="breakEvenCPC">2.87</span>.</p>
+          <p>Based on the life-time value of acquisition, your break-even CPC is&nbsp;<span class="currency-placeholder">$</span><span id="breakEvenCPC">2.87</span>.</p>
           <table id="graph">
             <tr class="r1">
               <td class="blank c1">&nbsp;</td>
@@ -268,6 +268,10 @@
 
           </table>
           <p>With current CPC of <span class="currency-placeholder">$</span><span id="cpc-considering">2.10</span> the return-on-investment of your online campaign is&nbsp;<span id="roi">36%</span>.</p>
+          
+          <h3 class="first">Disclaimer</h3>
+          <p class="disclaimer">This Life-Time Value Calculation is only an estimate based on the assumptions and data you provided.  Actual results may vary and there are many different factors to consider when evaluating the success of an online campaign.  Online-to-store data from <a href="http://www.consumerbarometer.com/">Consumer Barometer</a>.</p>
+          
           <h3>What next?</h3>
           <ul id="what-next">
             <li class="link-for-sharing">Share current setup by copying <span class="no-linebreak">this&nbsp;link:&nbsp;<input id="link-for-sharing" type="text" readonly></span></li>
@@ -350,17 +354,16 @@
               <p class="reserve">&nbsp;</p>
             </div>
           </div>
-		    </div>
-		    <div id="belowInputsAndOutputs"></div>
+        </div>
+        <div id="belowInputsAndOutputs"></div>
       </div>
 
-      <div id="footer">
-        <p>Please note that future results may differ from above. Please use directionally. Many different factors should be considered when evaluating the relative success of an online campaign.</p>
-        <p class="footer-authors">Online&#8209;to&#8209;store data from <a href="http://www.consumerbarometer.com/">Consumer Barometer</a>.</p>
+<!--      <div id="footer">
+        <p class="footer-authors"> </p>
         <div style="clear:both"></div>
-      </div>
+      </div>-->
 
-	</div>
+  </div>
 
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -375,8 +378,6 @@
   </script>
 
   <script src="ltv_site.dart.js"></script>
-  <!--<script type="application/dart" src="ltv_site.dart"></script>-->
-  <!--<script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>-->
 
   </body>
 </html>
