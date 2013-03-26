@@ -5,23 +5,14 @@ api_version: 1
 threadsafe: yes
 
 handlers:
-#- url: /favicon\.ico
-  #static_files: favicon.ico
-  #upload: favicon\.ico
-
 - url: /
   static_files: static/index.html
   upload: static/index\.html
+  secure: always
 
 - url: /
   static_dir: static
-
-#- url: .*
-  #script: main.app
-
-#libraries:
-#- name: webapp2
-  #version: "2.5.1"
+  secure: always
 
 skip_files:
 - ^(.*/)?app\.yaml
