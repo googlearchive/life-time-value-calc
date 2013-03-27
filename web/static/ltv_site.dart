@@ -89,7 +89,9 @@ void main() {
   // hide loading
   var loadingDiv = query("div#loading-div");
   loadingDiv.classes.add("hide3d");
-  loadingDiv.onTransitionEnd.first.then((_) => loadingDiv.remove());
+  // Normally, we would use loadingDiv.onTransitionEnd here, but that doesn't 
+  // work in Opera (and possibly other browsers).
+  new Timer(const Duration(milliseconds: 300), () => loadingDiv.remove());
 
   // roll out the methodology
   var methodologyLink = query("a#methodology-link");
