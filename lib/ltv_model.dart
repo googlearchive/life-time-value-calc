@@ -1,7 +1,6 @@
 library ltv_model;
 
 import 'dart:html';
-import 'dart:uri';
 import 'dart:math';
 import 'dart:async';
 import 'human_number_recognizer.dart';
@@ -423,8 +422,8 @@ class LtvModel {
   String _constructUrl(Map map) {
     StringBuffer strBuf = new StringBuffer("#");
     map.forEach((k, v) {
-      var key = encodeUriComponent(k);
-      var value = encodeUriComponent(v);
+      var key = Uri.encodeComponent(k);
+      var value = Uri.encodeComponent(v);
       strBuf.write("$key=$value&");
     });
     String url = strBuf.toString();
@@ -443,8 +442,8 @@ class LtvModel {
     parts.forEach((part) {
       var keyValuePair = part.split("=");
       if (keyValuePair.length == 2) {
-        var k = decodeUriComponent(keyValuePair[0]);
-        var v = decodeUriComponent(keyValuePair[1]);
+        var k = Uri.decodeComponent(keyValuePair[0]);
+        var v = Uri.decodeComponent(keyValuePair[1]);
         map[k] = v;
       }
     });
