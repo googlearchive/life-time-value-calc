@@ -1,26 +1,24 @@
 library human_number_recognizer;
 
-import "dart:math";
-
 class HumanNumber {
   // TODO: have state = setup "locale", "learn", etc.
 
   // Ex: -1 165 849.918
-  static RegExp validEnglishLargeNumber =
-      new RegExp(r"^\s*([-+]?\s*([0-9]{1,3}[, ])+[0-9]{3}(\.?[0-9]+)*)\s*$");
+  static RegExp validEnglishLargeNumber = new RegExp(
+      r"^\s*([-+]?\s*([0-9]{1,3}[, ])+[0-9]{3}(\.?[0-9]+)*)\s*$");
   // Ex: -1.165.849,918
-  static RegExp validCzechLargeNumber =
-      new RegExp(r"^\s*([-+]?\s*([0-9]{1,3}[. ])+[0-9]{3}(\,?[0-9]+)*)\s*$");
+  static RegExp validCzechLargeNumber = new RegExp(
+      r"^\s*([-+]?\s*([0-9]{1,3}[. ])+[0-9]{3}(\,?[0-9]+)*)\s*$");
   // Ex: 1,400
-  static RegExp thousandLookingNumber =
-      new RegExp(r"^\s*([-+]?\s*[0-9]{1,3}[,\. ][0-9]{2}0)\s*$");
+  static RegExp thousandLookingNumber = new RegExp(
+      r"^\s*([-+]?\s*[0-9]{1,3}[,\. ][0-9]{2}0)\s*$");
   // Ex: 15616.8, but also "489,48984,,,6.46,"
-  static RegExp numberCharsString =
-      new RegExp(r"^\s*([-+]?\s*[0-9,\. ]*[0-9])\s*$");
-  static RegExp numberCharsStringWithEndingDot =
-      new RegExp(r"^\s*([-+]?\s*[0-9,\. ]*[0-9])[\.,]\s*$");
-  static RegExp numberCharsStringWithEndingPercentage =
-      new RegExp(r"^\s*([-+]?\s*[0-9,\. ]*[0-9])[\.,]?\s*%\s*$");
+  static RegExp numberCharsString = new RegExp(
+      r"^\s*([-+]?\s*[0-9,\. ]*[0-9])\s*$");
+  static RegExp numberCharsStringWithEndingDot = new RegExp(
+      r"^\s*([-+]?\s*[0-9,\. ]*[0-9])[\.,]\s*$");
+  static RegExp numberCharsStringWithEndingPercentage = new RegExp(
+      r"^\s*([-+]?\s*[0-9,\. ]*[0-9])[\.,]?\s*%\s*$");
 
   static RegExp whiteSpace = new RegExp(r"\s");
   static RegExp commaOrDot = new RegExp(r"[\.,]");
@@ -40,13 +38,11 @@ class HumanNumber {
     int numberOfDots = 0;
     int numberOfCommas = 0;
     for (int i = 0; i < s.length; i++) {
-      if (s[i] == ".")
-        numberOfDots++;
-      else if (s[i] == ",")
-        numberOfCommas++;
+      if (s[i] == ".") numberOfDots++; else if (s[i] == ",") numberOfCommas++;
     }
 
-    if ((numberOfDots > 0 && numberOfCommas > 0) || (numberOfDots > 1 || numberOfCommas > 1)) {
+    if ((numberOfDots > 0 && numberOfCommas > 0) || (numberOfDots > 1 ||
+        numberOfCommas > 1)) {
       if (validEnglishLargeNumber.hasMatch(s)) {
         s = s.replaceAll(",", "");
       } else if (validCzechLargeNumber.hasMatch(s)) {

@@ -4,77 +4,90 @@ import "package:life-time-value/src/ropo_values.dart";
 import "dart:html";
 import "dart:async";
 
-
 void main() {
   LtvModel model = new LtvModel();
 
-  model.currencyInputEl = query("#currency-set");
+  model.currencyInputEl = querySelector("#currency-set");
 
   model.cpc = new BoundValue("#cpc", model);
-  model.cpc.addElements([query("#cpc-considering")]);
-  model.conversionRate = new BoundValue("#conversionRate", model, isPercentage:true);
+  model.cpc.addElements([querySelector("#cpc-considering")]);
+  model.conversionRate = new BoundValue("#conversionRate", model, isPercentage:
+      true);
   model.customerLifetime = new BoundValue("#customerLifetime", model);
   model.firstPurchaseValue = new BoundValue("#firstPurchase", model);
   model.firstPurchaseValue.precision = 0;
-  model.firstPurchaseValue.addElements([query("#firstPurchase-table")]);
-  model.repurchase = new BoundValue("#repurchase", model, isPercentage:true);
+  model.firstPurchaseValue.addElements([querySelector("#firstPurchase-table")]);
+  model.repurchase = new BoundValue("#repurchase", model, isPercentage: true);
 
   // advanced
   model.purchasesPerYear = new BoundValue("#purchasesPerYear", model);
   model.purchasesPerYear.precision = 0;
-  model.purchasesPerYear.addElements([query("#purchasesPerYear-table")]);
+  model.purchasesPerYear.addElements([querySelector(
+      "#purchasesPerYear-table")]);
   model.year2PurchaseValue = new BoundValue("#year-2-purchase", model);
   model.year2PurchaseValue.precision = 0;
   model.year3PurchaseValue = new BoundValue("#year-3-purchase", model);
   model.year3PurchaseValue.precision = 0;
-  model.year2PurchasesPerYear = new BoundValue("#year-2-purchasesPerYear", model);
+  model.year2PurchasesPerYear = new BoundValue("#year-2-purchasesPerYear",
+      model);
   model.year2PurchasesPerYear.precision = 0;
-  model.year3PurchasesPerYear = new BoundValue("#year-3-purchasesPerYear", model);
+  model.year3PurchasesPerYear = new BoundValue("#year-3-purchasesPerYear",
+      model);
   model.year3PurchasesPerYear.precision = 0;
-  model.year2RetentionRate = new BoundValue("#year-2-retentionRate", model, isPercentage:true);
+  model.year2RetentionRate = new BoundValue("#year-2-retentionRate", model,
+      isPercentage: true);
   model.year2RetentionRate.precision = 0;
-  model.year3RetentionRate = new BoundValue("#year-3-retentionRate", model, isPercentage:true);
+  model.year3RetentionRate = new BoundValue("#year-3-retentionRate", model,
+      isPercentage: true);
   model.year3RetentionRate.precision = 0;
 
-  model.referralRate = new BoundValue("#referralRate", model, isPercentage:true);
-  model.grossMargin = new BoundValue("#grossMargin", model, isPercentage:true);
-  model.costOfCapital = new BoundValue("#costOfCapital", model, isPercentage:true);
+  model.referralRate = new BoundValue("#referralRate", model, isPercentage:
+      true);
+  model.grossMargin = new BoundValue("#grossMargin", model, isPercentage: true);
+  model.costOfCapital = new BoundValue("#costOfCapital", model, isPercentage:
+      true);
 
-  model.ropoCategoryEl = query("#ropoCategory");
-  model.destinationCountryEl = query("#destinationCountry");
+  model.ropoCategoryEl = querySelector("#ropoCategory");
+  model.destinationCountryEl = querySelector("#destinationCountry");
 
-  [model.ropoCategoryEl, model.destinationCountryEl].forEach((SelectElement el) {
+  [model.ropoCategoryEl, model.destinationCountryEl].forEach((SelectElement el)
+      {
     el.onChange.listen((e) {
       // get ROPO coefficients from table
-      String key = "${model.destinationCountryEl.value} > ${model.ropoCategoryEl.value}";
+      String key =
+          "${model.destinationCountryEl.value} > ${model.ropoCategoryEl.value}";
       model.ropoCoefficient.value = RopoValues.ropoCoefficients[key];
       model.recalculate(e);
       model.pushState();
     });
   });
 
-  model.suggestedRopoCoefficient = new BoundValue("#suggestedRopoCoefficient", model);
+  model.suggestedRopoCoefficient = new BoundValue("#suggestedRopoCoefficient",
+      model);
   model.ropoCoefficient = new BoundValue("#ropoCoefficient", model);
 
   model.cpa = new BoundValue("#cpa", model);
   model.cpa.precision = 0;
   model.totalOnOffPurchase = new BoundValue("#totalOnOffPurchase", model);
-  model.totalPurchasePlusRepeat = new BoundValue("#totalPurchasePlusRepeat", model);
-  model.referralAdditionalRevenue = new BoundValue("#referralAdditionalRevenue", model);
-  model.totalPurchasePlusRepeatAndReferral = new BoundValue("#totalPurchasePlusRepeatAndReferral", model);
+  model.totalPurchasePlusRepeat = new BoundValue("#totalPurchasePlusRepeat",
+      model);
+  model.referralAdditionalRevenue = new BoundValue("#referralAdditionalRevenue",
+      model);
+  model.totalPurchasePlusRepeatAndReferral = new BoundValue(
+      "#totalPurchasePlusRepeatAndReferral", model);
   model.lifetimeValue = new BoundValue("#lifetimeValue", model);
   model.lifetimeValue.precision = 0;
   model.profitPerCustomer = new BoundValue("#profitPerCustomer", model);
   model.profitPerCustomer.precision = 0;
-  model.roi = new BoundValue("#roi", model, isPercentage:true);
+  model.roi = new BoundValue("#roi", model, isPercentage: true);
   model.roi.precision = 0;
   model.breakEvenCPC = new BoundValue("#breakEvenCPC", model);
 
-  model.graphRowTop = query("table#graph tr.r2");
-  model.graphRowMiddle = query("table#graph tr.r3");
-  model.graphRowBottom = query("table#graph tr.r4");
+  model.graphRowTop = querySelector("table#graph tr.r2");
+  model.graphRowMiddle = querySelector("table#graph tr.r3");
+  model.graphRowBottom = querySelector("table#graph tr.r4");
 
-  model.linkForSharing = query("input#link-for-sharing");
+  model.linkForSharing = querySelector("input#link-for-sharing");
 
   // setup value dependencies
   model.start();
@@ -87,20 +100,21 @@ void main() {
   model.pushState();
 
   // hide loading
-  var loadingDiv = query("div#loading-div");
+  var loadingDiv = querySelector("div#loading-div");
   loadingDiv.classes.add("hide3d");
-  // Normally, we would use loadingDiv.onTransitionEnd here, but that doesn't 
+  // Normally, we would use loadingDiv.onTransitionEnd here, but that doesn't
   // work in Opera (and possibly other browsers).
   new Timer(const Duration(milliseconds: 300), () => loadingDiv.remove());
 
   // roll out the methodology
-  var methodologyLink = query("a#methodology-link");
+  var methodologyLink = querySelector("a#methodology-link");
   methodologyLink.onClick.listen((e) {
     e.preventDefault();
-    var methodology = query("div#methodology");
-    if (methodology.style.height == null || methodology.style.height.startsWith("0")
-        || methodology.style.height == "") {
-      var cssStyle = query("div#methodology-inside-wrapper").getComputedStyle();
+    var methodology = querySelector("div#methodology");
+    if (methodology.style.height == null || methodology.style.height.startsWith(
+        "0") || methodology.style.height == "") {
+      var cssStyle = querySelector(
+          "div#methodology-inside-wrapper").getComputedStyle();
       methodology.style.height = cssStyle.height;
       methodologyLink.text = "Hide methodology";
     } else {
@@ -111,12 +125,12 @@ void main() {
   });
 
   // basic/advanced tabs
-  var basicTab = query("a#basic-tab");
-  var advancedTab = query("a#advanced-tab");
+  var basicTab = querySelector("a#basic-tab");
+  var advancedTab = querySelector("a#advanced-tab");
   basicTab.onClick.listen((e) {
     basicTab.classes.add("selected");
     advancedTab.classes.remove("selected");
-    for (var el in queryAll("div#inputs tr.advanced")) {
+    for (var el in querySelectorAll("div#inputs tr.advanced")) {
       el.style.display = "none";
     }
   });
@@ -124,7 +138,7 @@ void main() {
   advancedTab.onClick.listen((e) {
     basicTab.classes.remove("selected");
     advancedTab.classes.add("selected");
-    for (var el in queryAll("div#inputs tr.advanced")) {
+    for (var el in querySelectorAll("div#inputs tr.advanced")) {
       el.style.display = "table-row";
     }
   });
