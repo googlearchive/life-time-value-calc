@@ -1,5 +1,5 @@
-import 'package:unittest/unittest.dart';
-import 'package:life-time-value/human_number_recognizer.dart';
+import 'package:test/test.dart';
+import 'package:lifetimevalue/human_number_recognizer.dart';
 
 main() {
   Function rec = HumanNumber.recognizeString;

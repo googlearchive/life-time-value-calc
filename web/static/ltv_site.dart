@@ -1,5 +1,5 @@
-import "package:life-time-value/ltv_model.dart";
-import "package:life-time-value/src/ropo_values.dart";
+import "package:lifetimevalue/ltv_model.dart";
+import "package:lifetimevalue/src/ropo_values.dart";
 
 import "dart:html";
 import "dart:async";

@@ -1,10 +1,18 @@
-name: life-time-value
-version: 0.2.1
+name: lifetimevalue
+version: 0.2.2
 author: Filip Hracek <filiph@google.com>
+
+environment:
+  sdk: '>=1.23.0 <2.0.0'
+
 dependencies:
-  browser: any
+  browser: '>=0.10.0+2 <0.11.0'
+
 dev_dependencies:
-  unittest: any
+  dart_to_js_script_rewriter: any
+  test: any
+
 transformers:
-- $dart2js:
-    minify: true
+- test/pub_serve:
+    $include: test/**_test.dart
+- dart_to_js_script_rewriter
