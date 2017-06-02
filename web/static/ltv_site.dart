@@ -1,8 +1,8 @@
+import "dart:async";
+import "dart:html";
+
 import "package:lifetimevalue/ltv_model.dart";
 import "package:lifetimevalue/src/ropo_values.dart";
-
-import "dart:html";
-import "dart:async";
 
 void main() {
   LtvModel model = new LtvModel();
@@ -11,8 +11,8 @@ void main() {
 
   model.cpc = new BoundValue("#cpc", model);
   model.cpc.addElements([querySelector("#cpc-considering")]);
-  model.conversionRate = new BoundValue("#conversionRate", model, isPercentage:
-      true);
+  model.conversionRate =
+      new BoundValue("#conversionRate", model, isPercentage: true);
   model.customerLifetime = new BoundValue("#customerLifetime", model);
   model.firstPurchaseValue = new BoundValue("#firstPurchase", model);
   model.firstPurchaseValue.precision = 0;
@@ -22,36 +22,36 @@ void main() {
   // advanced
   model.purchasesPerYear = new BoundValue("#purchasesPerYear", model);
   model.purchasesPerYear.precision = 0;
-  model.purchasesPerYear.addElements([querySelector(
-      "#purchasesPerYear-table")]);
+  model.purchasesPerYear
+      .addElements([querySelector("#purchasesPerYear-table")]);
   model.year2PurchaseValue = new BoundValue("#year-2-purchase", model);
   model.year2PurchaseValue.precision = 0;
   model.year3PurchaseValue = new BoundValue("#year-3-purchase", model);
   model.year3PurchaseValue.precision = 0;
-  model.year2PurchasesPerYear = new BoundValue("#year-2-purchasesPerYear",
-      model);
+  model.year2PurchasesPerYear =
+      new BoundValue("#year-2-purchasesPerYear", model);
   model.year2PurchasesPerYear.precision = 0;
-  model.year3PurchasesPerYear = new BoundValue("#year-3-purchasesPerYear",
-      model);
+  model.year3PurchasesPerYear =
+      new BoundValue("#year-3-purchasesPerYear", model);
   model.year3PurchasesPerYear.precision = 0;
-  model.year2RetentionRate = new BoundValue("#year-2-retentionRate", model,
-      isPercentage: true);
+  model.year2RetentionRate =
+      new BoundValue("#year-2-retentionRate", model, isPercentage: true);
   model.year2RetentionRate.precision = 0;
-  model.year3RetentionRate = new BoundValue("#year-3-retentionRate", model,
-      isPercentage: true);
+  model.year3RetentionRate =
+      new BoundValue("#year-3-retentionRate", model, isPercentage: true);
   model.year3RetentionRate.precision = 0;
 
-  model.referralRate = new BoundValue("#referralRate", model, isPercentage:
-      true);
+  model.referralRate =
+      new BoundValue("#referralRate", model, isPercentage: true);
   model.grossMargin = new BoundValue("#grossMargin", model, isPercentage: true);
-  model.costOfCapital = new BoundValue("#costOfCapital", model, isPercentage:
-      true);
+  model.costOfCapital =
+      new BoundValue("#costOfCapital", model, isPercentage: true);
 
   model.ropoCategoryEl = querySelector("#ropoCategory");
   model.destinationCountryEl = querySelector("#destinationCountry");
 
-  [model.ropoCategoryEl, model.destinationCountryEl].forEach((SelectElement el)
-      {
+  [model.ropoCategoryEl, model.destinationCountryEl]
+      .forEach((SelectElement el) {
     el.onChange.listen((e) {
       // get ROPO coefficients from table
       String key =
@@ -62,19 +62,19 @@ void main() {
     });
   });
 
-  model.suggestedRopoCoefficient = new BoundValue("#suggestedRopoCoefficient",
-      model);
+  model.suggestedRopoCoefficient =
+      new BoundValue("#suggestedRopoCoefficient", model);
   model.ropoCoefficient = new BoundValue("#ropoCoefficient", model);
 
   model.cpa = new BoundValue("#cpa", model);
   model.cpa.precision = 0;
   model.totalOnOffPurchase = new BoundValue("#totalOnOffPurchase", model);
-  model.totalPurchasePlusRepeat = new BoundValue("#totalPurchasePlusRepeat",
-      model);
-  model.referralAdditionalRevenue = new BoundValue("#referralAdditionalRevenue",
-      model);
-  model.totalPurchasePlusRepeatAndReferral = new BoundValue(
-      "#totalPurchasePlusRepeatAndReferral", model);
+  model.totalPurchasePlusRepeat =
+      new BoundValue("#totalPurchasePlusRepeat", model);
+  model.referralAdditionalRevenue =
+      new BoundValue("#referralAdditionalRevenue", model);
+  model.totalPurchasePlusRepeatAndReferral =
+      new BoundValue("#totalPurchasePlusRepeatAndReferral", model);
   model.lifetimeValue = new BoundValue("#lifetimeValue", model);
   model.lifetimeValue.precision = 0;
   model.profitPerCustomer = new BoundValue("#profitPerCustomer", model);
@@ -111,17 +111,17 @@ void main() {
   methodologyLink.onClick.listen((e) {
     e.preventDefault();
     var methodology = querySelector("div#methodology");
-    if (methodology.style.height == null || methodology.style.height.startsWith(
-        "0") || methodology.style.height == "") {
-      var cssStyle = querySelector(
-          "div#methodology-inside-wrapper").getComputedStyle();
+    if (methodology.style.height == null ||
+        methodology.style.height.startsWith("0") ||
+        methodology.style.height == "") {
+      var cssStyle =
+          querySelector("div#methodology-inside-wrapper").getComputedStyle();
       methodology.style.height = cssStyle.height;
       methodologyLink.text = "Hide methodology";
     } else {
       methodology.style.height = "0";
       methodologyLink.text = "Learn about the methodology";
     }
-
   });
 
   // basic/advanced tabs

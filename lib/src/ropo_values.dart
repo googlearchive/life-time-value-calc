@@ -1,9 +1,7 @@
-
 library ropoValues;
 
 class RopoValues {
-  
-  static Map<String,num> ropoCoefficients = const {
+  static Map<String, num> ropoCoefficients = const {
     "Argentina > None (No offline sales)": 1.0000000,
     "Argentina > Auto > Auto (avg.)": 5.9859327,
     "Argentina > Auto > Car parts or accessories": 5.3271491,
