@@ -12,23 +12,6 @@
     <div id="matrioska">
       <div id="loading-div">
         <p><img alt="loading" src="imgs/loader.gif">Loading...</p>
-
-        <script type="text/javascript" charset="utf-8">
-          // browser detection from http://stackoverflow.com/a/2401861
-          var N= navigator.appName, ua= navigator.userAgent, tem;
-          var M= ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
-          if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];
-          M= M? [M[1], M[2]]: [N, navigator.appVersion,'-?'];
-
-          if (M[0].toLowerCase() != "chrome") {
-            document.write("<p class='unsupported-notice'>");
-            document.write("<strong>Taking too long?</strong> This calculator only works in modern browsers. If this message doesn't dissapear in a few seconds, it means your browser version is not supported. Please upgrade to the latest version of <a href='http://getfirefox.com'>Firefox</a>, <a href='http://www.opera.com/download/'>Opera</a>, <a href='https://www.apple.com/safari/'>Safari</a> &mdash; or just use <a href='http://www.google.com/chrome'>Chrome</a>. ");
-            if (M[0].toLowerCase() == "msie") {
-              document.write("If you absolutely must use Internet Explorer, please note that only <a href='http://windows.microsoft.com/en-US/internet-explorer/download-ie'>the very latest version</a> (10) kind of supports all the needed standards.");
-            }
-            document.write("</p>");
-          }
-        </script>
       </div>
 
       <div id="main">
