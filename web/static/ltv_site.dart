@@ -50,16 +50,31 @@ void main() {
   model.ropoCategoryEl = querySelector("#ropoCategory");
   model.destinationCountryEl = querySelector("#destinationCountry");
 
-  [model.ropoCategoryEl, model.destinationCountryEl]
-      .forEach((SelectElement el) {
-    el.onChange.listen((e) {
-      // get ROPO coefficients from table
-      String key =
-          "${model.destinationCountryEl.value} > ${model.ropoCategoryEl.value}";
-      model.ropoCoefficient.value = RopoValues.ropoCoefficients[key];
-      model.recalculate(e);
-      model.pushState();
-    });
+  void update(Event _) {
+    var country = model.destinationCountryEl.value;
+    var category = model.ropoCategoryEl.value;
+    var val = RopoValues.getCoefficient(country, category);
+    assert(val != null,
+        "Value for $country & $category doesn't exist among ropoCoefficiets.");
+    model.ropoCoefficient.value = val;
+    model.recalculate(null);
+    model.pushState();
+  }
+
+  model.ropoCategoryEl.onChange.listen(update);
+
+  model.destinationCountryEl.onChange.listen((e) {
+    var country = model.destinationCountryEl.value;
+    var previousCategory = model.ropoCategoryEl.value;
+    model.ropoCategoryEl.children.clear();
+    for (var category in RopoValues.ropoCategories) {
+      if (RopoValues.getCoefficient(country, category) == null) continue;
+      model.ropoCategoryEl.children.add(new OptionElement(
+          data: category,
+          value: category,
+          selected: category == previousCategory));
+    }
+    update(e);
   });
 
   model.suggestedRopoCoefficient =

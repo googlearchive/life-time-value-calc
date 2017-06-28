@@ -12,23 +12,6 @@
     <div id="matrioska">
       <div id="loading-div">
         <p><img alt="loading" src="imgs/loader.gif">Loading...</p>
-
-        <script type="text/javascript" charset="utf-8">
-          // browser detection from http://stackoverflow.com/a/2401861
-          var N= navigator.appName, ua= navigator.userAgent, tem;
-          var M= ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
-          if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];
-          M= M? [M[1], M[2]]: [N, navigator.appVersion,'-?'];
-
-          if (M[0].toLowerCase() != "chrome") {
-            document.write("<p class='unsupported-notice'>");
-            document.write("<strong>Taking too long?</strong> This calculator only works in modern browsers. If this message doesn't dissapear in a few seconds, it means your browser version is not supported. Please upgrade to the latest version of <a href='http://getfirefox.com'>Firefox</a>, <a href='http://www.opera.com/download/'>Opera</a>, <a href='https://www.apple.com/safari/'>Safari</a> &mdash; or just use <a href='http://www.google.com/chrome'>Chrome</a>. ");
-            if (M[0].toLowerCase() == "msie") {
-              document.write("If you absolutely must use Internet Explorer, please note that only <a href='http://windows.microsoft.com/en-US/internet-explorer/download-ie'>the very latest version</a> (10) kind of supports all the needed standards.");
-            }
-            document.write("</p>");
-          }
-        </script>
       </div>
 
       <div id="main">
@@ -107,91 +90,89 @@
               <tr>
                 <td colspan="2">O2S category
                   <select class="ropoDropDown" id="ropoCategory">
-                      <option>None (No offline sales)</option>
-                      <option>Auto > Auto (avg.)</option>
-                      <option>Auto > Car parts or accessories</option>
-                      <option>Auto > Cars</option>
-                      <option>Finance > Finance (Avg.)</option>
-                      <option>Finance > Car insurance</option>
-                      <option>Finance > Home insurance</option>
-                      <option>Finance > Personal Loans</option>
-                      <option>Health > Health products</option>
-                      <option>Media > Media (avg)</option>
-                      <option>Media > Cinema tickets</option>
-                      <option>Media > Event tickets</option>
-                      <option>Media > Video games</option>
-                      <option>Retail > Retail (avg)</option>
-                      <option>Retail > Books</option>
-                      <option>Retail > CDs/DVDs</option>
-                      <option>Retail > Clothing &amp; accessories</option>
-                      <option>Retail > Cosmetics/beauty products</option>
-                      <option selected>Retail > Domestic appliances</option>
-                      <option>Retail > Footwear</option>
-                      <option>Retail > Groceries</option>
-                      <option>Retail > Home and household goods</option>
-                      <option>Retail > Home furnishings/furniture</option>
-                      <option>Retail > Personal appliances</option>
-                      <option>Retail > Sports equipment</option>
-                      <option>Retail > Toys</option>
-                      <option>Tech > Tech (avg)</option>
-                      <option>Tech > Audio devices</option>
-                      <option>Tech > Computer hardware</option>
-                      <option>Tech > Computer peripherals</option>
-                      <option>Tech > Computer software</option>
-                      <option>Tech > Digital cameras/camcorders</option>
-                      <option>Tech > Mobile phone subscriptions</option>
-                      <option>Tech > Mobile phones</option>
-                      <option>Tech > Visual devices</option>
-                      <option>Travel > Travel (avg.)</option>
-                      <option>Travel > Business travel</option>
-                      <option>Travel > Hotel stays</option>
-                      <option>Travel > Leisure flights</option>
-                      <option>Travel > Package holidays</option>
+                    <option selected>Country average</option>
+                    <option>Car Insurance</option>
+                    <option>Cinema Tickets</option>
+                    <option>Clothing & Footwear</option>
+                    <option>Do It Yourself (DIY)</option>
+                    <option>Flights (Leisure)</option>
+                    <option>Groceries</option>
+                    <option>Ground Travel (Long-Distance)</option>
+                    <option>Hair Care</option>
+                    <option>Home Appliances</option>
+                    <option>Home Furnishings</option>
+                    <option>Hotels (Leisure)</option>
+                    <option>Laptop</option>
+                    <option>Make-up</option>
+                    <option>Mobile Phones</option>
+                    <option>Music</option>
+                    <option>Personal Loan</option>
+                    <option>Real Estate</option>
+                    <option>Restaurants</option>
+                    <option>Television</option>
+                    <option>Vitamins & OTC Remedies</option>
                   </select>
                 </td>
               </tr>
               <tr>
                 <td colspan="2">Destination country
                   <select class="ropoDropDown" id="destinationCountry">
-                     <option>Argentina</option>
-                      <option>Australia</option>
-                      <option>Austria</option>
-                      <option>Belgium</option>
-                      <option>Brazil</option>
-                      <option>Canada</option>
-                      <option selected>Czech Republic</option>
-                      <option>Denmark</option>
-                      <option>Finland</option>
-                      <option>France</option>
-                      <option>Germany</option>
-                      <option>Global</option>
-                      <option>Greece</option>
-                      <option>Hong Kong</option>
-                      <option>Hungary</option>
-                      <option>Ireland</option>
-                      <option>Israel</option>
-                      <option>Italy</option>
-                      <option>Japan</option>
-                      <option>Mexico</option>
-                      <option>Netherlands</option>
-                      <option>New Zealand</option>
-                      <option>Norway</option>
-                      <option>Poland</option>
-                      <option>Portugal</option>
-                      <option>Romania</option>
-                      <option>Russia</option>
-                      <option>Saudi Arabia</option>
-                      <option>Slovakia</option>
-                      <option>South Africa</option>
-                      <option>Spain</option>
-                      <option>Sweden</option>
-                      <option>Switzerland</option>
-                      <option>Taiwan</option>
-                      <option>Turkey</option>
-                      <option>UAE</option>
-                      <option>Ukraine</option>
-                      <option>United Kingdom</option>
-                      <option>USA</option>
+                    <option>Argentina</option>
+                    <option>Australia</option>
+                    <option>Austria</option>
+                    <option>Belgium</option>
+                    <option>Brazil</option>
+                    <option>Bulgaria</option>
+                    <option>Canada</option>
+                    <option>China</option>
+                    <option>Croatia</option>
+                    <option selected>Czech Republic</option>
+                    <option>Denmark</option>
+                    <option>Estonia</option>
+                    <option>Finland</option>
+                    <option>France</option>
+                    <option>Germany</option>
+                    <option>Greece</option>
+                    <option>Hong Kong</option>
+                    <option>Hungary</option>
+                    <option>India</option>
+                    <option>Indonesia</option>
+                    <option>Ireland</option>
+                    <option>Israel</option>
+                    <option>Italy</option>
+                    <option>Japan</option>
+                    <option>Kenya</option>
+                    <option>South Korea</option>
+                    <option>Latvia</option>
+                    <option>Lithuania</option>
+                    <option>Malaysia</option>
+                    <option>Mexico</option>
+                    <option>Netherlands</option>
+                    <option>Nigeria</option>
+                    <option>New Zealand</option>
+                    <option>Norway</option>
+                    <option>Philippines</option>
+                    <option>Poland</option>
+                    <option>Portugal</option>
+                    <option>Romania</option>
+                    <option>Russia</option>
+                    <option>Saudi Arabia</option>
+                    <option>Serbia</option>
+                    <option>Singapore</option>
+                    <option>Slovakia</option>
+                    <option>Slovenia</option>
+                    <option>South Africa</option>
+                    <option>Spain</option>
+                    <option>Sweden</option>
+                    <option>Switzerland</option>
+                    <option>Taiwan</option>
+                    <option>Thailand</option>
+                    <option>Turkey</option>
+                    <option>UAE</option>
+                    <option>Ukraine</option>
+                    <option>United Kingdom</option>
+                    <option>USA</option>
+                    <option>Vietnam</option>
                   </select>
                 </td>
               </tr>
@@ -202,8 +183,8 @@
                 <td><strong>Online-to-Store (O2S) factor</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">O2S factor represents the <strong>coefficient by which you should multiply your online revenue to be able to incorporate also the part of offline sales which were influenced by online</strong> and thus be able to calculate the whole ROI of your digital marketing activities. O2S factor = 1 means you have no offline sales.</div></div></td><td><input id="ropoCoefficient" type="text" value="2.71"></td>
               </tr>
             </table>
-             <table id="costOfCapitalTable">
-               <tr><th colspan="2">Discount rate</th></tr>
+            <table id="costOfCapitalTable">
+              <tr><th colspan="2">Discount rate</th></tr>
               <tr>
                 <td><strong>Discount rate</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">The <strong>interest rate used to discount future revenues to the present value</strong>. The discount rate takes into account the time value of money (the idea that money available now is worth more than the same amount of money available in the future because it could be earning interest).</div></div></td><td><input id="costOfCapital" type="text" value="10%"></td>
               </tr>
@@ -268,10 +249,10 @@
 
           </table>
           <p>With current CPC of <span class="currency-placeholder">$</span><span id="cpc-considering">2.10</span> the return-on-investment of your online campaign is&nbsp;<span id="roi">36%</span>.</p>
-          
+
           <h3 class="first">Important</h3>
           <p class="disclaimer">This Life-Time Value Calculation is only an estimate based on the assumptions and data you provided.  Actual results may vary and there are many different factors to consider when evaluating the success of an online campaign.  Online-to-store data from <a href="http://www.consumerbarometer.com/">Consumer Barometer</a>.</p>
-          
+
           <h3>What next?</h3>
           <ul id="what-next">
             <li class="link-for-sharing">Share current setup by copying <span class="no-linebreak">this&nbsp;link:&nbsp;<input id="link-for-sharing" type="text" readonly></span></li>
@@ -280,10 +261,10 @@
           </ul>
 
           <table id="output" style="display:none">
-              <tr><td>Total on/off purchase</td><td><span id="totalOnOffPurchase"></span></td></tr>
-              <tr><td>Total purchase + repeat</td><td><span id="totalPurchasePlusRepeat"></span></td></tr>
-              <tr><td>Referral additional revenue</td><td><span id="referralAdditionalRevenue"></span></td></tr>
-              <tr><td>Total purchase + repeat &amp; referral</td><td><span id="totalPurchasePlusRepeatAndReferral"></span></td></tr>
+            <tr><td>Total on/off purchase</td><td><span id="totalOnOffPurchase"></span></td></tr>
+            <tr><td>Total purchase + repeat</td><td><span id="totalPurchasePlusRepeat"></span></td></tr>
+            <tr><td>Referral additional revenue</td><td><span id="referralAdditionalRevenue"></span></td></tr>
+            <tr><td>Total purchase + repeat &amp; referral</td><td><span id="totalPurchasePlusRepeatAndReferral"></span></td></tr>
           </table>
 
           <div id="methodology">
@@ -358,26 +339,26 @@
         <div id="belowInputsAndOutputs"></div>
       </div>
 
-<!--      <div id="footer">
-        <p class="footer-authors"> </p>
-        <div style="clear:both"></div>
-      </div>-->
+      <!--      <div id="footer">
+              <p class="footer-authors"> </p>
+              <div style="clear:both"></div>
+            </div>-->
 
-  </div>
+    </div>
 
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-36339012-1']);
-    _gaq.push(['_trackPageview']);
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36339012-1']);
+      _gaq.push(['_trackPageview']);
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
 
-  <script src="ltv_site.dart.js"></script>
-
+    <script type="application/dart" src="ltv_site.dart"></script>
+    <script src="packages/browser/dart.js"></script>
   </body>
 </html>

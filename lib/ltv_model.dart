@@ -28,7 +28,9 @@ class BoundValue {
   BoundValue(String query, LtvModel this.model,
       {bool this.isPercentage: false}) {
     _elements = new List<Element>();
-    _elements.add(document.querySelector(query));
+    var element = document.querySelector(query);
+    assert(element != null, "Element $query does not exist.");
+    _elements.add(element);
     _value = _readNumberFrom(_elements[0]);
 
     _elements[0].onInput.listen((e) => inputListener(e));
@@ -53,6 +55,7 @@ class BoundValue {
   num get value => _value;
 
   set value(val) {
+    assert(val != null);
     if (val == _value) return;
     _value = val;
     _elements.forEach((el) {
@@ -508,10 +511,14 @@ class LtvModel {
       referralRate.elValue = map["referralRate"];
     if (map.containsKey("grossMargin"))
       grossMargin.elValue = map["grossMargin"];
-    if (map.containsKey("ropoCategory"))
+    if (map.containsKey("ropoCategory")) {
+      // TODO: check whether value actually exists (could be legacy).
       ropoCategoryEl.value = map["ropoCategory"];
-    if (map.containsKey("destinationCountry"))
+    }
+    if (map.containsKey("destinationCountry")) {
+      // TODO: check whether value actually exists (could be legacy).
       destinationCountryEl.value = map["destinationCountry"];
+    }
     if (map.containsKey("ropoCoefficient"))
       ropoCoefficient.elValue = map["ropoCoefficient"];
     if (map.containsKey("costOfCapital"))
