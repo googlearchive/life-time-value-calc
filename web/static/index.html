@@ -25,11 +25,11 @@
               <tr><th colspan="2">Product Conversion</th></tr>
               <tr>
                 <td>AdWords <strong>CPC</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">Your <strong>Cost-per-Click average</strong> in last 30 days - The amount that you actually pay each time someone clicks your ad. You can find it in AdWords.</div></div></td>
-                <td><span class="currency-placeholder with-input">$</span> <input id="cpc" type="text" value="2.1"></td>
+                <td><span class="currency-placeholder with-input">$</span> <input id="cpc" type="text" value="0.5"></td>
               </tr>
               <tr>
                 <td><strong>Conversion rate</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">Your <strong>conversion rate average in %</strong> in last 30 days - How often a click on your ad resulted in a conversion, a meaningful action like a sale, lead, or sign-up. You can find it in AdWords.</div></div></td>
-                <td><input id="conversionRate" type="text" value="2.5%"></td>
+                <td><input id="conversionRate" type="text" value="2%"></td>
               </tr>
             </table>
             <table id="productProfitability">
@@ -90,10 +90,10 @@
               <tr>
                 <td colspan="2">O2S category
                   <select class="ropoDropDown" id="ropoCategory">
-                    <option selected>Country average</option>
+                    <option>Country average</option>
                     <option>Car Insurance</option>
                     <option>Cinema Tickets</option>
-                    <option>Clothing & Footwear</option>
+                    <option selected>Clothing & Footwear</option>
                     <option>Do It Yourself (DIY)</option>
                     <option>Flights (Leisure)</option>
                     <option>Groceries</option>
@@ -177,10 +177,10 @@
                 </td>
               </tr>
               <tr style="display:none">
-                <td>Suggested Online-to-Store (O2S) factor</td><td><input id="suggestedRopoCoefficient" type="text" value="2.71"></td>
+                <td>Suggested Online-to-Store (O2S) factor</td><td><input id="suggestedRopoCoefficient" type="text" value="1.43333333333333"></td>
               </tr>
               <tr>
-                <td><strong>Online-to-Store (O2S) factor</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">O2S factor represents the <strong>coefficient by which you should multiply your online revenue to be able to incorporate also the part of offline sales which were influenced by online</strong> and thus be able to calculate the whole ROI of your digital marketing activities. O2S factor = 1 means you have no offline sales.</div></div></td><td><input id="ropoCoefficient" type="text" value="2.71"></td>
+                <td><strong>Online-to-Store (O2S) factor</strong> <div class="question-mark"><img alt="?" src="imgs/question-mark.png"/><div class="additional-notes">O2S factor represents the <strong>coefficient by which you should multiply your online revenue to be able to incorporate also the part of offline sales which were influenced by online</strong> and thus be able to calculate the whole ROI of your digital marketing activities. O2S factor = 1 means you have no offline sales.</div></div></td><td><input id="ropoCoefficient" type="text" value="1.43"></td>
               </tr>
             </table>
             <table id="costOfCapitalTable">
@@ -198,11 +198,11 @@
           <div id="share-buttons"></div>
           <p id="currency-disclaimer">This calculation is currency independent. Feel free to to change the <input id="currency-set" type="text" value="$"> symbol here.</p>
 
-          <p>Based on the life-time value of acquisition, your break-even CPC is&nbsp;<span class="currency-placeholder">$</span><span id="breakEvenCPC">2.87</span>.</p>
+          <p>Based on the life-time value of acquisition, your break-even CPC is&nbsp;<span class="currency-placeholder">$</span><span id="breakEvenCPC">1.20</span>.</p>
           <table id="graph">
             <tr class="r1">
               <td class="blank c1">&nbsp;</td>
-              <td class="number c2"><span class="currency-placeholder">$</span>&nbsp;<span id="lifetimeValue">115</span></td>
+              <td class="number c2"><span class="currency-placeholder">$</span>&nbsp;<span id="lifetimeValue">60</span></td>
               <td class="blank c3">&nbsp;</td>
               <td class="blank c4">&nbsp;</td>
               <td class="blank c5">&nbsp;</td>
@@ -213,9 +213,9 @@
               <td class="blank c1">&nbsp;</td>
               <td class="bar customer-ltv c2">&nbsp;</td>
               <td class="blank c3">&nbsp;</td>
-              <td class="bar cpa c4"><span class="currency-placeholder">$</span><span id="cpa">84</span></td>
+              <td class="bar cpa c4"><span class="currency-placeholder">$</span><span id="cpa">25</span></td>
               <td class="blank c5">&nbsp;</td>
-              <td class="number c6"><span class="currency-placeholder">$</span><span id="profitPerCustomer">31</span></td>
+              <td class="number c6"><span class="currency-placeholder">$</span><span id="profitPerCustomer">35</span></td>
               <td class="blank c7">&nbsp;</td>
             </tr>
             <tr class="r3">
@@ -248,7 +248,7 @@
             </tr>
 
           </table>
-          <p>With current CPC of <span class="currency-placeholder">$</span><span id="cpc-considering">2.10</span> the return-on-investment of your online campaign is&nbsp;<span id="roi">36%</span>.</p>
+          <p>With current CPC of <span class="currency-placeholder">$</span><span id="cpc-considering">0.50</span> the return-on-investment of your online campaign is&nbsp;<span id="roi">141%</span>.</p>
 
           <h3 class="first">Important</h3>
           <p class="disclaimer">This Life-Time Value Calculation is only an estimate based on the assumptions and data you provided.  Actual results may vary and there are many different factors to consider when evaluating the success of an online campaign.  Online-to-store data from <a href="http://www.consumerbarometer.com/">Consumer Barometer</a>.</p>
@@ -338,12 +338,6 @@
         </div>
         <div id="belowInputsAndOutputs"></div>
       </div>
-
-      <!--      <div id="footer">
-              <p class="footer-authors"> </p>
-              <div style="clear:both"></div>
-            </div>-->
-
     </div>
 
     <script type="text/javascript">

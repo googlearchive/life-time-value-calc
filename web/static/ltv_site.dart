@@ -111,6 +111,7 @@ void main() {
   model.parseUrl();
 
   // recalculate for the first time
+  update(null);
   model.recalculate(null);
   model.pushState();
 
