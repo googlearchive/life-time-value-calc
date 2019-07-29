@@ -150,6 +150,12 @@ h1 a {
   text-decoration: none;
 }
 
+div#banner {
+  background: yellow;
+  padding: 1em 2em;
+  line-height: normal;
+}
+
 div#main {
   margin: 0;
   padding: 1em 5%;
