@@ -1,15 +1,26 @@
 # Life-time value calculator
 
+An online tool for calculating life-time value of a customer, and comparing
+it to cost-per-click expenses. Initially built for AdWords, with data
+from [Consumer Barometer][], but the algorithm is broadly usable.
+
+[Consumer Barometer]: https://web.archive.org/web/20190721103027/https://www.consumerbarometer.com/
+
+Methodology is explained in the tool itself.
 
 ## Development
+
+The tool is written in pure Dart (not AngularDart nor Flutter) and compiled
+to JavaScript. The following instructions assume you have [installed Dart][]
+and put it in path.
+
+[installed Dart]: https://dart.dev/get-dart
 
 ### Local server
 
 Use `webdev serve` for development. This will show the web app on
-`localhost:8080`. If you don't have the `webdev` tool, [install Dart][],
-put it in path, then run `pub global activate webdev`.
-
-[install Dart]: https://dart.dev/get-dart
+`localhost:8080`. If you don't have the `webdev` tool, run 
+`pub global activate webdev`.
 
 When you're ready to deploy, see build and deploy instructions below.
 
