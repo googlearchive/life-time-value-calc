@@ -1,14 +1,17 @@
-/* @override http://127.0.0.1:3030/Users/filiph/dev/lifetime-value/web/static/css/ltv.css */
+/*
+Copyright 2019 Google LLC
 
-/* @override 
-	http://127.0.0.1:3030/Users/filiph/dev/lifetime-value/example/life-time-value/css/ltv.css
-	http://127.0.0.1:3030/Users/filiph/dart/ltv/ltv.css
-	http://127.0.0.1:3030/Users/filiph/dev/lifetime-value/example/life-time-value/static/css/ltv.css
-*/
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 */
 
 html, body, div, span, applet, object, iframe,
