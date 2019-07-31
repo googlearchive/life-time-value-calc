@@ -8,6 +8,8 @@ from [Consumer Barometer][], but the algorithm is broadly usable.
 
 Methodology is explained in the tool itself.
 
+This is not an officially supported Google product.
+
 ## Development
 
 The tool is written in pure Dart (not AngularDart nor Flutter) and compiled
