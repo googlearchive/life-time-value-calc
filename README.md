@@ -11,7 +11,7 @@ Methodology is explained in the tool itself.
 This is not an officially supported Google product.
 
 **NOTE:** This tool was available at `https://life-time-value.appspot.com/`
-between 2013 and 2019. It was open sourced in 2019 to let existing users
+between 2012 and 2019. It was open sourced in 2019 to let existing users
 fork it and continue using it.
 
 ## Development
